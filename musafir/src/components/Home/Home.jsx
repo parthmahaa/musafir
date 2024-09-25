@@ -16,8 +16,8 @@ export default function Home() {
 
     <div class="relative px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div class="text-center md:w-2/3 lg:w-1/2 xl:w-1/3 md:text-left">
-            <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">Discover top destinations</h2>
-            <p class="mt-4 text-base text-gray-200">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam.</p>
+            <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">Welcome to Msuafir</h2>
+            <p class="mt-4 text-base text-gray-200">Discover top destinations,dive into culture experiences.We have something interesting for every traveler</p>
 
             <div className='flex justify-start pt-5 pb-4 pl-0 '>
               <Link to='/explore'>
@@ -31,7 +31,7 @@ export default function Home() {
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto text-center">
             <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">How does it work?</h2>
-            <p class="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">Explore places based on your preferences and add them to your wishlist.</p>
+            <p class="max-w-lg font mx-auto mt-4 text-base leading-relaxed text-gray-600">Explore places based on your preferences and add them to your wishlist.</p>
         </div>
 
         <div class="relative mt-12 lg:mt-20">
