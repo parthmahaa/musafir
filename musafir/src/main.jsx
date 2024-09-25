@@ -6,9 +6,10 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import Layout from './Layout.jsx'
 import Home from './components/Home/Home.jsx'
 import About from './components/About/About.jsx'
-import Blogs from './components/Blogs/Blogs.jsx'
+import Explore from './components/Explore/Explore.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import LoginPage from './LoginPage.jsx'
+import User from './components/Users/User.jsx'
 
 const router = createBrowserRouter(
   [
@@ -21,12 +22,16 @@ const router = createBrowserRouter(
           element: <Home/>
         },
         {
-          path: '/about',
+          path: 'about',
           element: <About/>
         },
         {
-          path: '/blogs',
-          element: <Blogs/>
+          path: 'explore',
+          element: <Explore/>
+        },
+        {
+          path: 'user',
+          element: <User/>
         }
       ]
     },
