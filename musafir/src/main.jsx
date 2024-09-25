@@ -7,17 +7,34 @@ import Layout from './Layout.jsx'
 import Home from './components/Home/Home.jsx'
 import About from './components/About/About.jsx'
 import Blogs from './components/Blogs/Blogs.jsx'
-import Login from './components/Login/Login.jsx'
+import Footer from './components/Footer/Footer.jsx'
+import LoginPage from './LoginPage.jsx'
 
 const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path='/' element={<Layout />}>
-      <Route path='' element={<Home />} />
-      <Route path='about' element={<About />} />
-      <Route path='blogs' element={<Blogs />} />
-      <Route path='login' element={<Login />} />
-    </Route>
-  )
+  [
+    {
+      path: '/',
+      element: <Layout/>,
+      children: [
+        {
+          path: '',
+          element: <Home/>
+        },
+        {
+          path: '/about',
+          element: <About/>
+        },
+        {
+          path: '/blogs',
+          element: <Blogs/>
+        }
+      ]
+    },
+    {
+      path: '/login',
+      element: <LoginPage/>
+    }
+  ]
 )
 
 ReactDOM.createRoot(document.getElementById('root')).render(
