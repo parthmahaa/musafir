@@ -47,7 +47,7 @@ function Blogs() {
         </div>
       </div>
     </div>
-    <div class="grid gap-6 gap-y-10 py-6 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid gap-6  gap-y-10 py-10 md:grid-cols-4 lg:grid-cols-3">
       <div class="border">
         <img
           src={vr}
@@ -67,6 +67,7 @@ function Blogs() {
             Shop. Dine. Explore.    
           </p>
         </div>
+        <a className='text-blue-600 align-baseline px-3 py-10' target='_blank' href='https://maps.app.goo.gl/SujidTPNinxsZaXx5'>Directions</a>
       </div>
       <div class="border">
         <img
@@ -82,9 +83,10 @@ function Blogs() {
             Dumas
           </p>
           <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          Surat's most famous and crowded beach is a great place to relax with family.The beach offers many adventure sports and activities such as camel riding and baby sports at affordable costs. You can even bring your own toys to enjoy. Don't forget to visit the Dariya Ganesh temple
+          Surat's most famous beach is a great place to relax with family.The beach offers many adventure sports and activities at affordable costs. You can even bring your own toys to enjoy. Don't forget to visit the Dariya Ganesh temple
           </p>
         </div>
+          <a className='text-blue-600 align-top px-3 py-10' target='_blank' href='https://maps.app.goo.gl/8PPWKbKLrX757CbD6'>Directions</a>
       </div>
       <div class="border">
         <img
@@ -100,7 +102,7 @@ function Blogs() {
             Chauta
           </p>
           <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          Chauta Bazaar is one of the oldest market of Surat.Chauta Bazaar's history dates back to early 1700s. The present-day Mota Mandir in Chauta was known as Vaishnao Haveli. There were shops surrounding the Haveli where the women visiting the temple would go shopping for utensils, clothes, cosmetics, groceries and other day-to-day household goods.
+          Chauta Bazaar is one of the oldest market of Surat. There were shops surrounding the Haveli where the women visiting the temple would go shopping for utensils, clothes, cosmetics, groceries and other day-to-day household goods.
           </p>
         </div>
       </div> 

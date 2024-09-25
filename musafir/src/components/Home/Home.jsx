@@ -19,22 +19,55 @@ export default function Home() {
             <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">Discover top destinations</h2>
             <p class="mt-4 text-base text-gray-200">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam.</p>
 
-            <form action="#" method="POST" class="mt-8 lg:mt-12">
-                <div class="flex flex-col items-center sm:flex-row sm:justify-center">
-                    <div class="flex-1 w-full min-w-0 px-4 sm:px-0">
-                        <div class="relative text-gray-400 focus-within:text-gray-600">
-                            <label for="email" class="sr-only"></label>
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                explore 
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </form>
+            <div className='flex justify-start pt-5 pb-4 pl-0 '>
+              <Link to='/explore'>
+              <button className='text-white w-20 h-10 rounded-2xl bg-red-600'> Explore</button>
+              </Link>
+            </div>
         </div>
     </div>
 </section>
+<section class="py-10 bg-white sm:py-16 lg:py-24">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">How does it work?</h2>
+            <p class="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">Explore places based on your preferences and add them to your wishlist.</p>
+        </div>
+
+        <div class="relative mt-12 lg:mt-20">
+            <div class="absolute inset-x-0 hidden xl:px-44 top-2 md:block md:px-20 lg:px-28">
+                <img class="w-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/steps/2/curved-dotted-line.svg" alt="" />
+            </div>
+
+            <div class="relative grid grid-cols-1 text-center gap-y-12 md:grid-cols-3 gap-x-12">
+                <div>
+                    <div class="flex items-center justify-center w-16 h-16 mx-auto bg-orange-500 border-2 border-gray-200 rounded-full shadow">
+                        <span class="text-xl font-semibold text-gray-700"> 1 </span>
+                    </div>
+                    <h3 class="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">Create a account</h3>
+                    <p class="mt-4 text-base text-gray-600">Discover top destinations and hot picks based on latest reviews and add them to your wishlist.</p>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-center w-16 h-16 mx-auto bg-orange-500 border-2 border-gray-200 rounded-full shadow">
+                        <span class="text-xl font-semibold text-gray-700"> 2 </span>
+                    </div>
+                    <h3 class="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">Plan your trip</h3>
+                    <p class="mt-4 text-base text-gray-600">Schedule your trip with our trip management tool based on your choice and type of travel</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-center w-16 h-16 mx-auto bg-orange-500 border-2 border-gray-200 rounded-full shadow">
+                        <span class="text-xl font-semibold text-gray-700"> 3 </span>
+                    </div>
+                    <h3 class="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">Travel & Enjoy</h3>
+                    <p class="mt-4 text-base text-gray-600">Experience your favorite places with our plan designed exclusively for you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
             {/* <div class="relative w-full">
   <div class="relative isolate z-0 bg-white px-6 pt-14 lg:px-8">
