@@ -1,5 +1,7 @@
 import React ,{useState} from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
+import img1 from '../../assets/logo.png'
 
 const Signup = () => {
   const [full_name,setFullName] = useState('');
@@ -20,7 +22,12 @@ const Signup = () => {
     
   return (
     <div className="flex flex-col items-center justify-center text-center min-h-screen">
-      <div className="flex flex-col justify-center items-center bg-[#EDDCD9] p-8 border-2 border-[#264143] rounded-2xl shadow-[3px_4px_0px_1px_#E99F4C] w-auto">
+      <div className="h-15 w-50 mb-6 pb-5 md:mb-0">
+                        <Link to="/" className="flex items-center">
+                        <img src={img1} id="logo" className="max-w-23 filter-none max-h-6" alt="" />
+                        </Link>
+                    </div>
+      <div className="flex flex-col justify-center items-center bg-[#ffffff] p-8 border-2 border-[#264143] rounded-2xl shadow-[3px_4px_0px_1px_#E99F4C] w-auto">
         <p className="text-[#264143] font-extrabold text-2xl mb-5">SIGN UP</p>
         <form className="w-full" onSubmit={handleSubmit}>
           <div className="flex flex-col items-start mb-4">
@@ -59,7 +66,7 @@ const Signup = () => {
           <div>
             <button 
               type="submit" 
-              className="py-3 px-4 w-72 bg-[#DE5499] rounded-lg font-bold text-sm shadow-[3px_3px_0px_0px_#E99F4C] hover:opacity-90 focus:translate-y-1">
+              className="py-3 px-4 w-72 text-white bg-black rounded-lg font-bold text-sm shadow-[3px_3px_0px_0px_#E99F4C] hover:opacity-80 focus:translate-y-1">
               SIGN UP
             </button>
             <p className="mt-4">Have an Account? <a className="font-bold text-[#264143]" href="/login">Login Here!</a></p>

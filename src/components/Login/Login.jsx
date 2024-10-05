@@ -33,7 +33,7 @@ function Login() {
             </label>
             <div className="mt-2">
               <input
-                className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex outline-none border-2 border-[#264143] shadow-[3px_4px_0px_1px_#E99F4C] w-full p-3 rounded-md text-sm focus:translate-y-1 focus:shadow-[1px_2px_0px_0px_#E99F4C]"
                 type="email"
                 placeholder="Email"
               />
@@ -56,13 +56,13 @@ function Login() {
             </div>
             <div className="mt-2">
               <input
-                className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex outline-none border-2 border-[#264143] shadow-[3px_4px_0px_1px_#E99F4C] w-full p-3 rounded-md text-sm focus:translate-y-1 focus:shadow-[1px_2px_0px_0px_#E99F4C]"
                 type="password"
                 placeholder="Password"
               />
             </div>
           </div>
-          <div>
+          <div className='pt-3'>
             <button
               type="button"
               className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
