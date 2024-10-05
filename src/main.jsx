@@ -8,6 +8,7 @@ import Home from './components/Home/Home.jsx'
 import About from './components/About/About.jsx'
 import Explore from './components/Explore/Explore.jsx'
 import Footer from './components/Footer/Footer.jsx'
+import SignupPage from './SignupPage.jsx'
 import LoginPage from './LoginPage.jsx'
 import User from './components/Users/User.jsx'
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter(
     {
       path: '/login',
       element: <LoginPage/>
+    },
+    {
+      path: '/signup',
+      element: <SignupPage/>
     }
   ]
 )
