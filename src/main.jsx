@@ -7,10 +7,9 @@ import Layout from './Layout.jsx'
 import Home from './components/Home/Home.jsx'
 import About from './components/About/About.jsx'
 import Explore from './components/Explore/Explore.jsx'
-import Footer from './components/Footer/Footer.jsx'
-import SignupPage from './SignupPage.jsx'
 import LoginPage from './LoginPage.jsx'
-import User from './components/Users/User.jsx'
+import SignupPage from './SignupPage.jsx'
+
 
 const router = createBrowserRouter(
   [
@@ -29,10 +28,6 @@ const router = createBrowserRouter(
         {
           path: 'explore',
           element: <Explore/>
-        },
-        {
-          path: 'user',
-          element: <User/>
         }
       ]
     },
@@ -44,6 +39,7 @@ const router = createBrowserRouter(
       path: '/signup',
       element: <SignupPage/>
     }
+    
   ]
 )
 
