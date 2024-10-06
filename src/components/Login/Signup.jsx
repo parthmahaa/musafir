@@ -1,24 +1,43 @@
-import React ,{useState} from 'react';
-import axios from 'axios'
-import { Link } from 'react-router-dom';
+import React ,{useState,useContext} from 'react';
+import { Link ,useNavigate } from 'react-router-dom';
 import img1 from '../../assets/logo.png'
+import {AuthContext} from '../../Context/AuthContext.jsx'
 
 const Signup = () => {
-  const [full_name,setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const { isAuthenticated,setIsAuthenticated } = useContext(AuthContext);
+  const [credentials, setCredentials] = useState({name:"",email:"", password:""});
 
+  let history = useNavigate();
+  console.log(isAuthenticated,"singup");
   const handleSubmit = async (e) => {
-      e.preventDefault();
-      try {
-          await axios.post('http://localhost:5000/api/auth/register', { email, password });
-          window.location = '/login'; // Redirect to Login
-      } catch (err) {
-          setError('Error registering. Please try again.');
-      }
-  };
 
+    e.preventDefault();
+
+    const response = await fetch("http://localhost:5000/auth/signup", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({name:credentials.name, email: credentials.email , password: credentials.password})
+    });
+
+    const json = await response.json();
+
+    if(json.success) {
+      // save the auth token and redirect
+      localStorage.setItem('token',json.authToken);
+      setIsAuthenticated(true);
+      alert("Successfully Signed Up");
+      history("/");
+      
+    } else {
+      alert("Invalid Credentials");
+    }
+  }
+
+  const onChange = (e) => {
+    setCredentials({...credentials,[e.target.name]: e.target.value});
+  }
     
   return (
     <div className="flex flex-col items-center justify-center text-center min-h-screen">
@@ -35,8 +54,9 @@ const Signup = () => {
             <input 
               placeholder="Enter your full name" 
               id="name"
-              value={full_name}
-              onChange={(e) => setFullName(e.target.value)}
+              name='name'
+              value={credentials.name}
+              onChange={onChange}
               className="outline-none border-2 border-[#264143] shadow-[3px_4px_0px_1px_#E99F4C] w-72 p-3 rounded-md text-sm focus:translate-y-1 focus:shadow-[1px_2px_0px_0px_#E99F4C]" 
               type="text"
             />
@@ -46,8 +66,9 @@ const Signup = () => {
             <input 
               placeholder="Enter your email" 
               id="email" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name='email'
+              value={credentials.email}
+              onChange={onChange}
               className="outline-none border-2 border-[#264143] shadow-[3px_4px_0px_1px_#E99F4C] w-72 p-3 rounded-md text-sm focus:translate-y-1 focus:shadow-[1px_2px_0px_0px_#E99F4C]" 
               type="email"
             />
@@ -57,14 +78,16 @@ const Signup = () => {
             <input 
               placeholder="Enter your password" 
               id="password" 
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name='password'
+              value={credentials.password}
+              onChange={onChange}
               className="outline-none border-2 border-[#264143] shadow-[3px_4px_0px_1px_#E99F4C] w-72 p-3 rounded-md text-sm focus:translate-y-1 focus:shadow-[1px_2px_0px_0px_#E99F4C]" 
               type="password"
             />
           </div>
           <div>
             <button 
+              onClick={handleSubmit}
               type="submit" 
               className="py-3 px-4 w-72 text-white bg-black rounded-lg font-bold text-sm shadow-[3px_3px_0px_0px_#E99F4C] hover:opacity-80 focus:translate-y-1">
               SIGN UP
@@ -72,7 +95,7 @@ const Signup = () => {
             <p className="mt-4">Have an Account? <a className="font-bold text-[#264143]" href="/login">Login Here!</a></p>
           </div>
         </form>
-        {error && <p>{error}</p>}
+
       </div>
     </div>
   );

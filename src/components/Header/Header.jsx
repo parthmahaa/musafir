@@ -1,8 +1,12 @@
 import React from 'react'
-import {Link, NavLink} from 'react-router-dom'
+import {Link, NavLink, useNavigate} from 'react-router-dom'
+import {AuthContext} from '../../Context/AuthContext.jsx'
 import img1 from '../../assets/musafir-high-resolution-logo-transparent.png'
+import { useContext} from 'react';
 
 export default function Header() {
+    const {isAuthenticated ,setIsAuthenticated } = useContext(AuthContext) 
+
     return (
         <header className="shadow sticky z-50 top-0">
             <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
@@ -14,10 +18,18 @@ export default function Header() {
                     <div className="flex items-center lg:order-2">
               
                         <Link
+                            hidden={isAuthenticated}
                             to="/login"
                             className="text-gray-800 hover:bg-gray-200 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
                         >
                             Log in
+                        </Link>
+                        <Link
+                            hidden={!isAuthenticated}
+                            onClick={(e) => setIsAuthenticated(false)}
+                            className="text-gray-800 hover:bg-gray-200 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
+                        >
+                            Log Out
                         </Link>
                         <Link
                             to="mailto:parthmaha9@gmail.com"
