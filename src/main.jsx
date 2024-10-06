@@ -12,6 +12,7 @@ import SignupPage from './SignupPage.jsx'
 import Cafe from './components/Categories/Cafe/Cafe.jsx'
 import Malls from './components/Categories/Malls/Malls.jsx'
 import { AuthProvider } from './Context/AuthContext.jsx'
+import Historical from './components/Categories/Historical Places/Historical.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="explore" element={<Explore />} />
           <Route path="cafe" element={<Cafe />} />
           <Route path="malls" element={<Malls />} />
+          <Route path="historical" element={<Historical />} />
         </Route>
         <Route path="login" element={<LoginPage />} />
         <Route path="signup" element={<SignupPage />} />

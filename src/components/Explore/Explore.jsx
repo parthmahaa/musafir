@@ -48,10 +48,11 @@ function Blogs() {
           Malls
         </div>
         </Link>
-        
+        <Link to='/historical'>
         <div class="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 ">
           Historical Places
         </div>
+        </Link>
       </div>
     </div>
     <div class="grid gap-6  gap-y-10 py-10 md:grid-cols-4 lg:grid-cols-3">

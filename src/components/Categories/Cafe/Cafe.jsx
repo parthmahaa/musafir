@@ -33,22 +33,28 @@ function Cafe() {
     
     <div class="mt-10 hidden w-full flex-col justify-between space-y-4 md:flex md:flex-row">
       <div class="flex w-full items-end border-b border-gray-300">
-        <Link to='/explore'>
-        <div class="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 ">
+      <Link to='/explore'>
+        <div class="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 first:border-black">
           Trending
         </div>
         </Link>
+
         <Link to='/cafe'>
-          <div class="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 first:border-black">
+          <div class="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-">
           Cafe
           </div>
         </Link>
-        <div class="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 first:border-black">
+
+        <Link to='/malls'>
+        <div class="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 ">
           Malls
         </div>
-        <div class="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 first:border-black">
+        </Link>
+        <Link to='/historical'>
+        <div class="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 ">
           Historical Places
         </div>
+        </Link>
       </div>
     </div>
     <div class="grid gap-6  gap-y-10 py-10 md:grid-cols-4 lg:grid-cols-3">
