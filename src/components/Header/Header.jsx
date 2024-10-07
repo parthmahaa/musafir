@@ -3,6 +3,7 @@ import {Link, NavLink, useNavigate} from 'react-router-dom'
 import {AuthContext} from '../../Context/AuthContext.jsx'
 import img1 from '../../assets/musafir-high-resolution-logo-transparent.png'
 import { useContext} from 'react';
+import { FaRegHeart } from "react-icons/fa";
 
 export default function Header() {
     const {isAuthenticated ,setIsAuthenticated } = useContext(AuthContext) 
@@ -15,7 +16,13 @@ export default function Header() {
                     <img src={img1} id="logo" className="max-w-21 max-h-6" alt="" />
                     </Link>
                     <div className="flex items-center lg:order-2">
-              
+                    <Link
+                            hidden={!isAuthenticated}
+                            to="/wishlist"
+                            className='h-2px items-center hover:text-red-500'
+                        >
+                            <FaRegHeart />
+                        </Link>
                         <Link
                             hidden={isAuthenticated}
                             to="/login"

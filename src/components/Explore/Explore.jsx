@@ -9,7 +9,7 @@ function Blogs() {
       <div class="mx-auto max-w-7xl px-2">
       <div class="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
       <p class="text-3xl font-bold text-gray-900 md:text-5xl md:leading-10">
-        Resources and insights
+        Trending
       </p>
       <p class="max-w-4xl font-semibold text-gray-600 md:text-left">
       Looking to explore and get ideas about a new place? Use our platform to search for key insights on top attractions, and hidden gems. Whether you're interested in historical landmarks, outdoor adventures, or dining hotspots, our detailed info and user reviews will help you discover the best experiences. Plan your trips, and make your visit unforgettable.
@@ -43,9 +43,9 @@ function Blogs() {
           </div>
         </Link>
 
-        <Link to='/malls'>
+        <Link to='/street_food'>
         <div class="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 ">
-          Malls
+          Street Food
         </div>
         </Link>
         <Link to='/historical'>
@@ -94,7 +94,9 @@ function Blogs() {
           Surat's most famous beach is a great place to relax with family.The beach offers many adventure sports and activities at affordable costs. You can even bring your own toys to enjoy. Don't forget to visit the Dariya Ganesh temple
           </p>
         </div>
+          <div className='p-3'>
           <a className='text-blue-600 align-top px-3 py-10' target='_blank' href='https://maps.app.goo.gl/8PPWKbKLrX757CbD6'>Directions</a>
+          </div>
       </div>
       <div class="border">
         <img
@@ -112,140 +114,19 @@ function Blogs() {
           <p class="mt-4 w-full text-sm leading-normal text-gray-600">
           Chauta Bazaar is one of the oldest market of Surat. There were shops surrounding the Haveli where the women visiting the temple would go shopping for utensils, clothes, cosmetics, groceries and other day-to-day household goods.
           </p>
+          <div className='p-3 text-left'>
+          <a className='text-blue-600 align-top px-3 py-10' target='_blank' href='https://maps.app.goo.gl/12HjtYCEYr4iNrAW9'>Directions</a>
+          </div>
         </div>
       </div> 
     </div>
-    <div class="grid gap-6  gap-y-10 py-10 md:grid-cols-4 lg:grid-cols-3">
-      <div class="border">
-        <img
-          src={vr}
-          class="aspect-video w-auto rounded-md"
-          alt=""
-        />
-        <div class="min-h-min p-3">
-          <p class="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
-            #Malls
-          </p>
-          <p class="mt-4 flex-1 text-base font-semibold text-gray-900">
-            VR Mall
-          </p>
-          <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          VR Surat offers a curated mix of local and global experiences across retail, food and entertainment.
-            Connecting Communities.
-            Shop. Dine. Explore.    
-          </p>
-        </div>
-        <a className='text-blue-600 align-baseline px-3 py-10' target='_blank' href='https://maps.app.goo.gl/SujidTPNinxsZaXx5'>Directions</a>
-      </div>
-      <div class="border">
-        <img
-          src="https://surattourism.in/images/places-to-visit/header/dumas-beach-surat-tourism-entry-fee-timings-holidays-reviews-header.jpg"
-          class="aspect-video w-45 rounded-md"
-          alt=""
-        />
-        <div class="min-h-min p-3">
-          <p class="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
-            #Beach
-          </p>
-          <p class="mt-4 flex-1 text-base font-semibold text-gray-900">
-            Dumas
-          </p>
-          <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          Surat's most famous beach is a great place to relax with family.The beach offers many adventure sports and activities at affordable costs. You can even bring your own toys to enjoy. Don't forget to visit the Dariya Ganesh temple
-          </p>
-        </div>
-          <a className='text-blue-600 align-top px-3 py-10' target='_blank' href='https://maps.app.goo.gl/8PPWKbKLrX757CbD6'>Directions</a>
-      </div>
-      <div class="border">
-        <img
-          src={chauta}
-          class="aspect-video w-full rounded-md"
-          alt=""
-        />
-        <div class="min-h-min p-3">
-          <p class="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
-            #Shopping
-          </p>
-          <p class="mt-4 flex-1 text-base font-semibold text-gray-900">
-            Chauta
-          </p>
-          <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          Chauta Bazaar is one of the oldest market of Surat. There were shops surrounding the Haveli where the women visiting the temple would go shopping for utensils, clothes, cosmetics, groceries and other day-to-day household goods.
-          </p>
-        </div>
-      </div> 
-    </div>
-    <div class="grid gap-6  gap-y-10 py-10 md:grid-cols-4 lg:grid-cols-3">
-      <div class="border">
-        <img
-          src={vr}
-          class="aspect-video w-auto rounded-md"
-          alt=""
-        />
-        <div class="min-h-min p-3">
-          <p class="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
-            #Malls
-          </p>
-          <p class="mt-4 flex-1 text-base font-semibold text-gray-900">
-            VR Mall
-          </p>
-          <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          VR Surat offers a curated mix of local and global experiences across retail, food and entertainment.
-            Connecting Communities.
-            Shop. Dine. Explore.    
-          </p>
-        </div>
-        <a className='text-blue-600 align-baseline px-3 py-10' target='_blank' href='https://maps.app.goo.gl/SujidTPNinxsZaXx5'>Directions</a>
-      </div>
-      <div class="border">
-        <img
-          src="https://surattourism.in/images/places-to-visit/header/dumas-beach-surat-tourism-entry-fee-timings-holidays-reviews-header.jpg"
-          class="aspect-video w-45 rounded-md"
-          alt=""
-        />
-        <div class="min-h-min p-3">
-          <p class="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
-            #Beach
-          </p>
-          <p class="mt-4 flex-1 text-base font-semibold text-gray-900">
-            Dumas
-          </p>
-          <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          Surat's most famous beach is a great place to relax with family.The beach offers many adventure sports and activities at affordable costs. You can even bring your own toys to enjoy. Don't forget to visit the Dariya Ganesh temple
-          </p>
-        </div>
-          <a className='text-blue-600 align-top px-3 py-10' target='_blank' href='https://maps.app.goo.gl/8PPWKbKLrX757CbD6'>Directions</a>
-      </div>
-      <div class="border">
-        <img
-          src={chauta}
-          class="aspect-video w-full rounded-md"
-          alt=""
-        />
-        <div class="min-h-min p-3">
-          <p class="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
-            #Shopping
-          </p>
-          <p class="mt-4 flex-1 text-base font-semibold text-gray-900">
-            Chauta
-          </p>
-          <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          Chauta Bazaar is one of the oldest market of Surat. There were shops surrounding the Haveli where the women visiting the temple would go shopping for utensils, clothes, cosmetics, groceries and other day-to-day household goods.
-          </p>
-        </div>
-      </div> 
-    </div>
-    
-
-    
+  
   </div>
   
   <div class="mx-auto mt-12 max-w-7xl bg-gray-50">
 
   </div>
 </div>
-
-
   )
 }
 

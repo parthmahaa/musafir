@@ -10,9 +10,10 @@ import Explore from './components/Explore/Explore.jsx'
 import LoginPage from './LoginPage.jsx'
 import SignupPage from './SignupPage.jsx'
 import Cafe from './components/Categories/Cafe/Cafe.jsx'
-import Malls from './components/Categories/Malls/Malls.jsx'
+import StreetFood from './components/Categories/Malls/StreetFood.jsx'
 import { AuthProvider } from './Context/AuthContext.jsx'
 import Historical from './components/Categories/Historical Places/Historical.jsx'
+import Wishlist from './components/Wishlist/Wishlist.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -24,8 +25,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="about" element={<About />} />
           <Route path="explore" element={<Explore />} />
           <Route path="cafe" element={<Cafe />} />
-          <Route path="malls" element={<Malls />} />
+          <Route path="street_food" element={<StreetFood/>} />
           <Route path="historical" element={<Historical />} />
+          <Route path="wishlist" element={<Wishlist/>} />
         </Route>
         <Route path="login" element={<LoginPage />} />
         <Route path="signup" element={<SignupPage />} />

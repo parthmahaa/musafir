@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import vr from '../../../assets/VR.jpg'
-import chauta from '../../../assets/Chauta.jpg'
+import img3 from '../../../assets/sardar.jpg'
+import img1 from '../../../assets/suratCastle.jpg'
+import img2 from '../../../assets/iscon.jpg'
+
+
 
 function Historical() {
   return (
@@ -14,7 +17,7 @@ function Historical() {
 
       </p>
       <p class="max-w-4xl font-semibold text-gray-600 md:text-left">
-      Looking to explore and get ideas about a new place? Use our platform to search for key insights on top attractions, and hidden gems. Whether you're interested in historical landmarks, outdoor adventures, or dining hotspots, our detailed info and user reviews will help you discover the best experiences. Plan your trips, and make your visit unforgettable.
+      Surat is steeped in history, with several sites that offer a glimpse into its rich past, including colonial influences, trade history, and ancient architecture.
       </p>
       <div class="mt-6 flex w-full items-center space-x-2 md:w-1/3">
         <input
@@ -45,9 +48,9 @@ function Historical() {
           </div>
         </Link>
 
-        <Link to='/malls'>
+        <Link to='/street_food'>
         <div class="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 ">
-          Malls
+          Street Food
         </div>
         </Link>
         <Link to='/historical'>
@@ -57,66 +60,68 @@ function Historical() {
         </Link>
       </div>
     </div>
-    <div class="grid gap-6  gap-y-10 py-10 md:grid-cols-4 lg:grid-cols-3">
-      <div class="border">
+    <div class="grid gap-6  gap-y-20  py-10 pb-56 md:grid-cols-4 lg:grid-cols-3">
+      <div class="border pb-2 h-[calc(100%+3rem)]">
         <img
-          src={vr}
+          className='object-contain'
+          src={img1}
           class="aspect-video w-auto rounded-md"
           alt=""
         />
         <div class="min-h-min p-3">
           <p class="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
-            #Malls
+            #Historical Places
           </p>
           <p class="mt-4 flex-1 text-base font-semibold text-gray-900">
-            VR Mall
+            Surat Castle
           </p>
           <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          VR Surat offers a curated mix of local and global experiences across retail, food and entertainment.
-            Connecting Communities.
-            Shop. Dine. Explore.    
+          Surat Castle, built by Sultan Mahmood-III in the 16th century, was designed to defend the city from Portuguese invasions. Its architecture showcases military engineering of the era. The fort symbolizes Surat's historical importance as a strategic port city.
           </p>
         </div>
-        <a className='text-blue-600 align-baseline px-3 py-10' target='_blank' href='https://maps.app.goo.gl/SujidTPNinxsZaXx5'>Directions</a>
+        <a className='text-blue-600 align-baseline px-3 py-10' target='_blank' href='https://maps.app.goo.gl/SK463ALEanDEvu8M9'>Directions</a>
       </div>
-      <div class="border">
+        <div class="border h-[calc(100%+3rem)]">
         <img
-          src="https://surattourism.in/images/places-to-visit/header/dumas-beach-surat-tourism-entry-fee-timings-holidays-reviews-header.jpg"
-          class="aspect-video w-45 rounded-md"
-          alt=""
-        />
-        <div class="min-h-min p-3">
-          <p class="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
-            #Beach
-          </p>
-          <p class="mt-4 flex-1 text-base font-semibold text-gray-900">
-            Dumas
-          </p>
-          <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          Surat's most famous beach is a great place to relax with family.The beach offers many adventure sports and activities at affordable costs. You can even bring your own toys to enjoy. Don't forget to visit the Dariya Ganesh temple
-          </p>
-        </div>
-          <a className='text-blue-600 align-top px-3 py-10' target='_blank' href='https://maps.app.goo.gl/8PPWKbKLrX757CbD6'>Directions</a>
-        </div>
-        <div class="border">
-        <img
-          src={chauta}
+          className='object-contain'
+          src={img2}
           class="aspect-video w-full rounded-md"
           alt=""
         />
         <div class="min-h-min p-3">
           <p class="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
-            #Shopping
+            #Historical Places
           </p>
           <p class="mt-4 flex-1 text-base font-semibold text-gray-900">
-            Chauta
+            ISCON Temple
           </p>
           <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          Chauta Bazaar is one of the oldest market of Surat. There were shops surrounding the Haveli where the women visiting the temple would go shopping for utensils, clothes, cosmetics, groceries and other day-to-day household goods.
+          About 15 kilometres from the railway station and the bus station, on the banks of River Tapi is the marvellous residential abode of Lord Sri Sri Radha Damodar. With an area of about 13600 square feet, it is one of the largest temples in Surat.
           </p>
+          <a className='text-blue-600 align-top px-3 py-10' target='_blank' href='https://maps.app.goo.gl/rYpEziS3kgPQDTZj7'>Directions</a>
         </div>
       </div> 
-    </div>
+      <div class="border h-[calc(100%+3rem)]">
+        <img
+          src={img3}
+          className='object-contain'
+          class="aspect-video w-auto rounded-md"
+          alt=""
+        />
+        <div class="min-h-min p-3">
+          <p class="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
+            #Historical Places
+          </p>
+          <p class="mt-4 flex-1 text-base font-semibold text-gray-900">
+            Sardar Patel Museum
+          </p>
+          <p class="mt-4 w-full text-sm leading-normal text-gray-600">
+          The Sardar Patel Museum, established in 1890, showcases a rich collection of historical artifacts, paintings, and sculptures. It offers insights into Surat's cultural and historical evolution from ancient to modern times, making it a key place for history enthusiasts to visit.   
+          </p>
+        </div>
+        <a className='text-blue-600 align-baseline px-3 py-10' target='_blank' href='https://maps.app.goo.gl/AnNgH27pkYdbm7kB8'>Directions</a>
+      </div> 
+      </div>
     </div>
     </div>
     </>
