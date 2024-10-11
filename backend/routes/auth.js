@@ -1,6 +1,7 @@
 import express from 'express'
 import Router from 'express'
 import User from '../models/User.js';
+import News from '../models/Newsletter.js'
 import {body,validationResult} from 'express-validator'
 import fetchUser from '../middlewares/fetchUser.js';
 import jwt from 'jsonwebtoken'

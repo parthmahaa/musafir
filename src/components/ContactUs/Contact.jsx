@@ -1,27 +1,47 @@
 import React ,{useState ,useRef} from 'react'
 import emailjs from '@emailjs/browser';
-
+import { useNavigate } from 'react-router-dom';
 function Contact() {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const form = useRef() 
 
-    const sendMail = (e) => {
+    let history = useNavigate()
+
+    const sendMail = async (e) => {
       e.preventDefault();
+      
+      const response = await fetch("http://localhost:5000/contact-us", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({name:name, email:email})
+      });
   
-      emailjs
+      const json = await response.json();
+  
+      if(json.success) {
+        emailjs
         .sendForm('service_2iurodi', 'template_1mmca0s', form.current, {
           publicKey: 'ElFYig7j9EWHUIp2x',
         })
         .then(
           () => {
             console.log('Mail sent!');
-            alert("You have subscribed to newsletter")
+            alert("you have been subscribed")
+            history('/')
           },
           (error) => {
             console.log('FAILED...', error.text);
           },
         );
+        console.log("Data sent");
+      } 
+      else {
+        history('/contact-us')
+        alert("email already exists")
+      }
     };
   return (
     <div className="flex flex-col pt-20 items-center justify-center text-center min-h-100">
