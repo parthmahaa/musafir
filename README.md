@@ -1,5 +1,16 @@
-<h3>
-  This is a MERN project designed to help travel enthusiasts explore places across a city based on their preferences, location and intrests. The website gives a brief introduction about the places and also gives 
-  some additional insights on what are the some famous things to try in the locality.
 
-</h3>
+# Musafir
+
+Musafir is made to enhace user travelling experience by suggesting them travel attractions across a city with recommendations, community events and schdule their trips according to their preferences.
+
+## Tech Stack
+
+**Client:** Vite,TailwindCSS,Emailjs 
+
+**Server:** Node,Express,Mongoose,cors,axios,jsonwebtoken
+
+
+## Authors
+
+- [@Parth Maha](https://www.github.com/parthmahaa)
+
