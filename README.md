@@ -1,8 +1,5 @@
-# React + Vite
+<h3>
+  This is a MERN project designed to help travel enthusiasts explore places across a city based on their preferences, location and intrests. The website gives a brief introduction about the places and also gives 
+  some additional insights on what are the some famous things to try in the locality.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</h3>
