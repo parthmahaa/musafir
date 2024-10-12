@@ -1,0 +1,38 @@
+[
+    {
+        "name" : "Mexican Spicy Salsa",
+        "tag" :"#Street Food",
+        "recommendation" : "Alfredo Red Pasta, Burrito Bowl ,Nachos",
+        "location" : "https://maps.app.goo.gl/zHthiQH6pREtD8pt9"
+    },
+    {
+        "name" : "Shree Mahalaxmi Sandwich",
+        "tag" :"#Street Food",
+        "recommendation" : "Rimzim and paneer grill sandwich",
+        "location" : "https://maps.app.goo.gl/PAnEQEeCNXezuUHf7"
+    },
+    {
+        "name" : "Shreeji Locho",
+        "tag" :"#Street Food",
+        "recommendation" : "ATG : Butter locho!",
+        "location" : "https://maps.app.goo.gl/k7mXs6hJdCte5wH16"
+    },
+    {
+        "name" : "Anand Aloopuri",
+        "tag" :"#Street Food",
+        "recommendation" : "Any Aloopuri is good aloopuri",
+        "location" : "https://maps.app.goo.gl/f9fCpC5K1pSjeezh6"
+    },
+    {
+        "name" : "Golden Tea Point",
+        "tag" :"#Street Food",
+        "recommendation" : "Cheese Grill vadapav and timepass ",
+        "location" : "https://maps.app.goo.gl/whUn95Lap3YxpeRP6"
+    },
+    {
+        "name" : "Krishna Frankie",
+        "tag" :"#Street Food",
+        "recommendation" : "Cheese Frankie",
+        "location" : "https://maps.app.goo.gl/YHmZTRV1g54DGaXy8"
+    }
+]

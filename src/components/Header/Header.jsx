@@ -2,11 +2,23 @@ import React from 'react'
 import {Link, NavLink, useNavigate} from 'react-router-dom'
 import {AuthContext} from '../../Context/AuthContext.jsx'
 import img1 from '../../assets/musafir-high-resolution-logo-transparent.png'
-import { useContext} from 'react';
+import { useContext , useEffect} from 'react';
 import { FaRegHeart } from "react-icons/fa";
 
 export default function Header() {
     const {isAuthenticated ,setIsAuthenticated } = useContext(AuthContext) 
+    useEffect(() => {
+        const storedAuthState = localStorage.getItem('isAuthenticated');
+        if (storedAuthState) {
+            setIsAuthenticated(JSON.parse(storedAuthState));
+        }
+    }, [setIsAuthenticated]);
+
+    const handleLogout = () => {
+        setIsAuthenticated(false);
+        localStorage.setItem('isAuthenticated', false); // Update localStorage
+    };
+
 
     return (
         <header className="shadow sticky z-50 top-0">
@@ -32,7 +44,7 @@ export default function Header() {
                         </Link>
                         <Link
                             hidden={!isAuthenticated}
-                            onClick={(e) => setIsAuthenticated(false)}
+                            onClick={handleLogout}
                             className="text-gray-800 hover:bg-gray-200 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
                         >
                             Log Out

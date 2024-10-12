@@ -2,6 +2,7 @@ import React ,{useState,useContext} from 'react';
 import { Link ,useNavigate } from 'react-router-dom';
 import img1 from '../../assets/logo.png'
 import {AuthContext} from '../../Context/AuthContext.jsx'
+import { ToastContainer, toast } from 'react-toastify';
 
 const Signup = () => {
   const { isAuthenticated,setIsAuthenticated } = useContext(AuthContext);
@@ -27,11 +28,11 @@ const Signup = () => {
       // save the auth token and redirect
       localStorage.setItem('token',json.authToken);
       setIsAuthenticated(true);
-      alert("Successfully Signed Up");
+      toast.success("Successfully Signed Up");
       history("/");
       
     } else {
-      alert("Invalid Credentials");
+      toast.error("Invalid Credentials");
     }
   }
 

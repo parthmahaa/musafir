@@ -1,6 +1,8 @@
 import React ,{useState ,useRef} from 'react'
 import emailjs from '@emailjs/browser';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+
 function Contact() {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
@@ -29,10 +31,11 @@ function Contact() {
         .then(
           () => {
             console.log('Mail sent!');
-            alert("you have been subscribed")
+            toast.success("you have been subscribed")
             history('/')
           },
           (error) => {
+            toast.error("Enter a valid mail")
             console.log('FAILED...', error.text);
           },
         );
@@ -40,7 +43,7 @@ function Contact() {
       } 
       else {
         history('/contact-us')
-        alert("email already exists")
+        toast.error("email already exists")
       }
     };
   return (
