@@ -1,5 +1,6 @@
 import React ,{useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
+import { FaRegHeart } from "react-icons/fa";
 
 function Blogs() {
   const [explore,setExplore] = useState("")
@@ -84,10 +85,13 @@ function Blogs() {
                   <img
                     src={place.img} 
                     className="object-cover w-full h-48"
-                    alt={place.name} 
+                    alt="image " 
                   />
                   <div className="flex flex-col gap-2 mt-4">
-                    <p className="pt-2 text-black text-lg font-medium">{place.tag}</p> 
+                    <p className="flex flex-row justify-between pt-2 text-black  text-lg font-medium">{place.tag} 
+                    <Link className='pr-3 pt-1 text-xl  text-center hover:text-red-500'>
+                    <FaRegHeart />
+                    </Link></p>
                     <div className="flex text-black text-2xl font-bold">
                       <div id="priceDiscountCent">{place.name}</div> 
                     </div>

@@ -1,5 +1,7 @@
 import React, { useEffect ,useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaRegHeart } from "react-icons/fa";
+
 function Cafe() {
   const [cafes,setCafes] = useState("")
   const getData = async() =>{
@@ -90,7 +92,10 @@ function Cafe() {
                     alt={cafe.name} 
                   />
                   <div className="flex flex-col gap-2 mt-4">
-                    <p className="pt-2 text-black text-lg font-medium">{cafe.tag}</p> 
+                  <p className="flex flex-row justify-between pt-2 text-black  text-lg font-medium">{cafe.tag} 
+                    <Link className='pr-3 pt-1 text-xl  text-center hover:text-red-500'>
+                    <FaRegHeart />
+                    </Link></p> 
                     <div className="flex text-black text-2xl font-bold">
                       <div id="priceDiscountCent">{cafe.name}</div> 
                     </div>
