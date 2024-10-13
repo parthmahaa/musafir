@@ -1,6 +1,6 @@
 import React ,{useState , useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart ,FaHeart } from "react-icons/fa";
 
 function StreetFood() {
   const [street,setStreet] = useState("")
@@ -25,6 +25,13 @@ function StreetFood() {
   useEffect(() => {
     getData();
   }, []);
+  const handleLikeToggle = (index) => {
+    setStreet((prev) =>
+      prev.map((place, i) =>
+        i === index ? { ...place, liked: !place.liked } : place
+      )
+    );
+  };
   return (
     <>  
     <div>
@@ -89,8 +96,15 @@ function StreetFood() {
                   />
                   <div className="flex flex-col gap-2 mt-4">
                   <p className="flex flex-row justify-between pt-2 text-black  text-lg font-medium">{food.tag} 
-                    <Link className='pr-3 pt-1 text-xl  text-center hover:text-red-500'>
-                    <FaRegHeart />
+                  <Link
+                      className='pr-3 pt-1 text-xl text-center flex items-center justify-center rounded-full p-2 transition-colors duration-300'
+                      onClick={() => handleLikeToggle(index)} // Pass index to the like toggle function
+                    >
+                      {food.liked ? (
+                        <FaHeart className='text-red-500' /> // Solid heart filled with red
+                      ) : (
+                        <FaRegHeart className='text-gray-500' /> // Regular heart not filled
+                      )}
                     </Link></p>
                     <div className="flex text-black text-2xl font-bold">
                       <div id="priceDiscountCent">{food.name}</div> 

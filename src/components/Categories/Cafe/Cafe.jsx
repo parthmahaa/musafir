@@ -1,6 +1,7 @@
 import React, { useEffect ,useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart ,FaHeart } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
 
 function Cafe() {
   const [cafes,setCafes] = useState("")
@@ -25,6 +26,13 @@ function Cafe() {
   useEffect(() => {
     getData();
   }, []);
+  const handleLikeToggle = (index,e) => {
+    setCafes((prev) =>
+      prev.map((place, i) =>
+        i === index ? { ...place, liked: !place.liked } : place
+      )
+    );
+  };
   return (
     <>
       <div>Name
@@ -93,8 +101,15 @@ function Cafe() {
                   />
                   <div className="flex flex-col gap-2 mt-4">
                   <p className="flex flex-row justify-between pt-2 text-black  text-lg font-medium">{cafe.tag} 
-                    <Link className='pr-3 pt-1 text-xl  text-center hover:text-red-500'>
-                    <FaRegHeart />
+                  <Link
+                      className='pr-3 pt-1 text-xl text-center flex items-center justify-center rounded-full p-2 transition-colors duration-300'
+                      onClick={(e) => handleLikeToggle(index)} // Pass index to the like toggle function
+                    >
+                      {cafe.liked ? (
+                        <FaHeart className='text-red-500' /> // Solid heart filled with red
+                      ) : (
+                        <FaRegHeart className='text-gray-500' /> // Regular heart not filled
+                      )}
                     </Link></p> 
                     <div className="flex text-black text-2xl font-bold">
                       <div id="priceDiscountCent">{cafe.name}</div> 
