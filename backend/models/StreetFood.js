@@ -24,6 +24,9 @@ const StreetSchema= new Schema(
       location :{
         type : String,
         required : true,
+      },
+      rating:{
+        type: Number
       }
     },
     {timestamps: true}

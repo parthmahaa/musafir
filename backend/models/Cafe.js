@@ -23,6 +23,9 @@ const cafeSchema= new Schema(
       location :{
         type : String,
         required : true,
+      },
+      rating:{
+        type: Number
       }
     },
     {timestamps: true}
