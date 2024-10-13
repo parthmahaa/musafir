@@ -4,8 +4,8 @@ import auth from './routes/auth.js'
 import historical from './routes/historical.js'
 import newsletter from './routes/newsletter.js'
 import streetFood from './routes/streetFood.js'
+import trending from './routes/trending.js'
 import cafe from './routes/cafe.js'
-import {body,validationResult} from 'express-validator'
 const app = express()
 const port= 5000
 
@@ -25,6 +25,7 @@ import Wishlist from './models/Wishlist.js'
 import Cafe from './models/Cafe.js'
 import Historical from './models/Historical.js'
 import StreetFood from './models/StreetFood.js'
+import Trending from './models/Trending.js'
 
 
 //ROUTES
@@ -33,6 +34,7 @@ app.use('/contact-us' ,newsletter)
 app.use('/historical' ,historical)
 app.use('/cafe' ,cafe)
 app.use('/street_food' ,streetFood)
+app.use('/explore' ,trending)
 
 
 app.listen(port, () => {

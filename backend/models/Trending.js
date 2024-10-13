@@ -1,6 +1,6 @@
 import mongoose, {Schema} from "mongoose"
 
-const cafeSchema= new Schema(
+const trendingSchema= new Schema(
     {
       name:{
         type: String,
@@ -21,14 +21,11 @@ const cafeSchema= new Schema(
       location :{
         type : String,
         required : true,
-      },
-      rating:{
-        type: Number
       }
     },
     {timestamps: true}
 )
 
-const Cafe = mongoose.model("Outing" , cafeSchema)
+const Trending = mongoose.model("Trending" , trendingSchema)
 
-export default Cafe
+export default Trending

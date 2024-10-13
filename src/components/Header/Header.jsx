@@ -4,22 +4,16 @@ import {AuthContext} from '../../Context/AuthContext.jsx'
 import img1 from '../../assets/musafir-high-resolution-logo-transparent.png'
 import { useContext , useEffect} from 'react';
 import { FaRegHeart } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Header() {
     const {isAuthenticated ,setIsAuthenticated } = useContext(AuthContext) 
-    useEffect(() => {
-        const storedAuthState = localStorage.getItem('isAuthenticated');
-        if (storedAuthState) {
-            setIsAuthenticated(JSON.parse(storedAuthState));
-        }
-    }, [setIsAuthenticated]);
 
-    const handleLogout = () => {
-        setIsAuthenticated(false);
-        localStorage.setItem('isAuthenticated', false); // Update localStorage
-    };
-
-
+    const handleLogout = () =>{
+        setIsAuthenticated(false)
+        toast.success("Logged Out")
+    }
+    
     return (
         <header className="shadow sticky z-50 top-0">
             <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">

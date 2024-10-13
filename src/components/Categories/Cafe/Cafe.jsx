@@ -110,7 +110,7 @@ function Cafe() {
                 </div>
               ))
             ) : (
-              <p className="text-center text-gray-600">Loading cafes...</p> // Display loading text if no cafes
+              <p className="text-center text-gray-600">Loading cafes...</p> 
             )}
           </div>
           </div>

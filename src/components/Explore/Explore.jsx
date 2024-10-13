@@ -1,9 +1,30 @@
-import React from 'react'
+import React ,{useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import vr from '../../assets/VR.jpg'
-import chauta from '../../assets/Chauta.jpg'
 
 function Blogs() {
+  const [explore,setExplore] = useState("")
+  const getData = async() =>{
+    try{
+        const response = await fetch("http://localhost:5000/explore" , {
+          method: "GET"
+        }) 
+        if(response.ok) {
+          const data = await response.json()
+          console.log(data.msg);
+          setExplore(data.msg)
+        }
+        else{
+          console.log("object");
+        }
+    }
+    catch(err){
+      console.log(`error: ${err}`);
+    }
+  }
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
       <div class="mx-auto max-w-7xl px-2">
@@ -55,74 +76,42 @@ function Blogs() {
         </Link>
       </div>
     </div>
+
     <div class="grid gap-6  gap-y-10 py-10 md:grid-cols-4 lg:grid-cols-3">
-      <div class="border">
-        <img
-          src={vr}
-          class="aspect-video w-auto rounded-md"
-          alt=""
-        />
-        <div class="min-h-min p-3">
-          <p class="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
-            #Malls
-          </p>
-          <p class="mt-4 flex-1 text-base font-semibold text-gray-900">
-            VR Mall
-          </p>
-          <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          VR Surat offers a curated mix of local and global experiences across retail, food and entertainment.
-            Connecting Communities.
-            Shop. Dine. Explore.    
-          </p>
-        </div>
-        <a className='text-blue-600 align-baseline px-3 py-10' target='_blank' href='https://maps.app.goo.gl/SujidTPNinxsZaXx5'>Directions</a>
-      </div>
-      <div class="border">
-        <img
-          src="https://surattourism.in/images/places-to-visit/header/dumas-beach-surat-tourism-entry-fee-timings-holidays-reviews-header.jpg"
-          class="aspect-video w-45 rounded-md"
-          alt=""
-        />
-        <div class="min-h-min p-3">
-          <p class="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
-            #Beach
-          </p>
-          <p class="mt-4 flex-1 text-base font-semibold text-gray-900">
-            Dumas
-          </p>
-          <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          Surat's most famous beach is a great place to relax with family.The beach offers many adventure sports and activities at affordable costs. You can even bring your own toys to enjoy. Don't forget to visit the Dariya Ganesh temple
-          </p>
-        </div>
-          <div className='p-3'>
-          <a className='text-blue-600 align-top px-3 py-10' target='_blank' href='https://maps.app.goo.gl/8PPWKbKLrX757CbD6'>Directions</a>
-          </div>
-      </div>
-      <div class="border">
-        <img
-          src={chauta}
-          class="aspect-video w-full rounded-md"
-          alt=""
-        />
-        <div class="min-h-min p-3">
-          <p class="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
-            #Shopping
-          </p>
-          <p class="mt-4 flex-1 text-base font-semibold text-gray-900">
-            Chauta
-          </p>
-          <p class="mt-4 w-full text-sm leading-normal text-gray-600">
-          Chauta Bazaar is one of the oldest market of Surat. There were shops surrounding the Haveli where the women visiting the temple would go shopping for utensils, clothes, cosmetics, groceries and other day-to-day household goods.
-          </p>
-          <div className='p-3 text-left'>
-          <a className='text-blue-600 align-top px-3 py-10' target='_blank' href='https://maps.app.goo.gl/12HjtYCEYr4iNrAW9'>Directions</a>
-          </div>
-        </div>
-      </div> 
+    {explore.length > 0 ? ( 
+              explore.map((place, index) => ( 
+                <div key={index} className="w-[405px] h-500px bg-white p-4 rounded-xl border-2 border-gray-300 overflow-hidden text-black">
+                  <img
+                    src={place.img} 
+                    className="object-cover w-full h-48"
+                    alt={place.name} 
+                  />
+                  <div className="flex flex-col gap-2 mt-4">
+                    <p className="pt-2 text-black text-lg font-medium">{place.tag}</p> 
+                    <div className="flex text-black text-2xl font-bold">
+                      <div id="priceDiscountCent">{place.name}</div> 
+                    </div>
+                    <div className="opacity-80 text-base font-semibold">
+                      {place.description} 
+                    </div>
+                    {/* <p>Rating: {place.rating}⭐</p>  */}
+                    <a
+                      className="text-blue-600 underline mt-2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={place.location} 
+                    >
+                      Directions
+                    </a>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p className="text-center text-gray-600">Loading Explore...</p> 
+            )}
     </div>
-  
+
   </div>
-  
   <div class="mx-auto mt-12 max-w-7xl bg-gray-50">
 
   </div>

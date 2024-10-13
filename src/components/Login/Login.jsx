@@ -29,7 +29,7 @@ function Login() {
       // save the auth token and redirect
       localStorage.setItem('token',json.authToken);
       setIsAuthenticated(true);
-      toast.success("Successfully Signed In");
+      toast.success("Successfully Logged In");
       history("/");
       
     } else {
