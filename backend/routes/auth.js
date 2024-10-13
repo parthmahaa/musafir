@@ -9,6 +9,7 @@ const router = Router()
 
 const JWT_SECRET = "CGPIT";
 
+
 // ROUTE 1: create a user using : POST "/auth/signup". doesn't require auth
 router.post('/signup', [
     body('name', 'Minimum length should be 3').isLength({ min: 3 }),

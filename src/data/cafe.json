@@ -1,35 +1,41 @@
 [
     {
+        "img" : "https://res.cloudinary.com/dg9qxalvh/image/upload/v1728806143/nomads_m1yf3h.jpg",
         "name" : "Nomads",
         "tag" : "#cafe",
         "description" : "Nomads Café in Surat is a popular, cozy spot known for its vibrant, laid-back ambiance. It offers a wide range of delicious food, including continental, Italian, and Indian dishes. With its artistic decor and outdoor seating, it's a favorite hangout for youngsters and food lovers.",
         "location" : "https://maps.app.goo.gl/3kyKvz8ihfSphtLYA"
     },
     {
+        "img" : "https://res.cloudinary.com/dg9qxalvh/image/upload/v1728806141/zero_caqkbx.jpg",
         "name" : "ZERO The restaurant",
         "tag" : "#cafe",
         "description" : "Zero the Restaurant offers a contemporary and stylish ambiance ideal for casual dining.Its diverse menu features Indian, Chinese, and continental dishes.The bar menu includes creatively crafted mocktails and cocktails that enhance the dining experience. Known for its attentive and friendly service, Zero ensures a pleasant visit for all diners.",
         "location" : "https://maps.app.goo.gl/Rmw98Ces1JQWQS6M6"
     },
     {
+        "img" : "https://res.cloudinary.com/dg9qxalvh/image/upload/v1728813568/bokketo1_tglr6z.jpg",
         "name" : "Bokketo",
         "tag" : "#cafe",
         "description" : "Bokketo offers a selection of beverages, including refreshing mocktails and cocktails, perfect for complementing the dining experience. The drink menu is designed to enhance the flavors of the food.Diners can expect a variety of dishes, including tantalizing starters, rich main courses, and delightful desserts. The menu often includes both vegetarian and non-vegetarian options, catering to a wide range of tastes.  ",
         "location" : "https://maps.app.goo.gl/TW8eTd9eY2ndHqVK7"
     },
     {
+        "img" : "https://res.cloudinary.com/dg9qxalvh/image/upload/v1728806143/moonstruck_a2udth.jpg",
         "name" : "Moonstruck",
         "tag" : "#cafe",
         "description" : "Moonstruck features a chic and contemporary interior with stylish décor, creating a lively and inviting atmosphere. The lighting and layout contribute to a relaxed yet energetic vibe, making it ideal for casual dining, celebrations, and gatherings with friends and family.Diners can enjoy a variety of appetizers, main courses, and desserts. Some standout dishes are known for their creative presentations and unique flavor combinations, making them a hit among guests",
         "location" : "https://maps.app.goo.gl/opquLWaEEfjMByXE7"
     },
     {
+        "img" : "https://res.cloudinary.com/dg9qxalvh/image/upload/v1728806143/meraki_lzd779.jpg",
         "name" : "Meraki",
         "tag" : "#cafe",
         "description" : "Meraki features a chic and contemporary interior, blending modern design with cozy elements. The decor often includes artistic touches, creating an inviting and vibrant atmosphere perfect for casual dining, family gatherings, or special occasions.Guests can enjoy a variety of dishes, from innovative appetizers to rich main courses and delightful desserts. Signature dishes often showcase a blend of traditional flavors with modern cooking techniques, appealing to a wide range of palates.",
         "location" : "https://maps.app.goo.gl/8crKuXPf2x5Sdfqy7"
     },
     {
+        "img" : "https://res.cloudinary.com/dg9qxalvh/image/upload/v1728806142/uncleGoon_xlsi6c.jpg",
         "name" : "Uncle Goons",
         "tag" : "#cafe",
         "description" : "Uncle Goon's features a lively and contemporary interior, with colorful decor and an energetic vibe that creates a fun dining experience. The casual setting makes it a great place for family outings, friends’ get-togethers, or a relaxed meal.The menu features a variety of innovative starters, hearty main courses, and delightful desserts. Signature dishes are known for their creative presentations and bold flavors, often leaving guests wanting more.",

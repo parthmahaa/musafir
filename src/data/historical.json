@@ -1,17 +1,20 @@
 [
     {
+        "img" : "https://res.cloudinary.com/dg9qxalvh/image/upload/v1728806145/suratCastle_eyeh8k.jpg",
         "name" : "Surat Castle",
         "tag" : "#Historical Places",
         "description" : "Surat Castle, built by Sultan Mahmood-III in the 16th century, was designed to defend the city from Portuguese invasions. Its architecture showcases military engineering of the era. The fort symbolizes Surat's historical importance as a strategic port city.",
         "location" : "https://maps.app.goo.gl/SK463ALEanDEvu8M9"
     },
     {
+        "img" : "https://res.cloudinary.com/dg9qxalvh/image/upload/v1728806144/iscon_dbu9fb.jpg",
         "name" : "ISCON Temple",
         "tag" : "#Historical Places",
         "description" : "About 15 kilometres from the railway station and the bus station, on the banks of River Tapi is the marvellous residential abode of Lord Sri Sri Radha Damodar. With an area of about 13600 square feet, it is one of the largest temples in Surat.",
         "location" : "https://maps.app.goo.gl/rYpEziS3kgPQDTZj7"
     },
     {
+        "img" : "https://res.cloudinary.com/dg9qxalvh/image/upload/v1728806144/sardar_qwjxaf.jpg",
         "name" : "Sardar Patel Museum",
         "tag" : "#Historical Places",
         "description" : "The Sardar Patel Museum, established in 1890, showcases a rich collection of historical artifacts, paintings, and sculptures. It offers insights into Surat's cultural and historical evolution from ancient to modern times, making it a key place for history enthusiasts to visit.",
