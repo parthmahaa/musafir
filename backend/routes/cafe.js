@@ -6,7 +6,7 @@ const router = Router()
 router.get('' , [] ,  async (req,res) => {
     
     try{
-        const response = await Cafe.find()
+        const response = await Cafe.find().sort({ rating: -1 })
         if(!response) res.status(404).json({msg : "No data found"})
 
         res.status(200).json({msg: response})

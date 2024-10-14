@@ -113,7 +113,7 @@ function Historical() {
                     <div className="opacity-80 text-base font-semibold">
                       {place.description} 
                     </div>
-                    <p>Rating: {place.rating}⭐</p> 
+                    {/* <p>Rating: {place.rating}⭐</p>  */}
                     <a
                       className="text-blue-600 underline mt-2"
                       target="_blank"
