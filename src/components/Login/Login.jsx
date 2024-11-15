@@ -1,4 +1,4 @@
-import React,{useState,useContext,useEffect} from 'react'
+  import React,{useState,useContext,useEffect} from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import {AuthContext} from '../../Context/AuthContext.jsx'
 import img1 from '../../assets/logo.png'
@@ -40,18 +40,7 @@ function Login() {
   const onChange = (e) => {
     setCredentials({...credentials,[e.target.name]: e.target.value});
   }
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Enter') {
-        handleSubmit(event);
-      }
-    };
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
+  
 
   return (
     <section>
@@ -125,8 +114,8 @@ function Login() {
           </div>
           <div className='pt-3'>
             <button
+              type="submit"
               onClick={handleSubmit}
-              type="button"
               className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
             >
               Log in{" "}

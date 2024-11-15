@@ -39,18 +39,6 @@ const Signup = () => {
   const onChange = (e) => {
     setCredentials({...credentials,[e.target.name]: e.target.value});
   }
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Enter') {
-        handleSubmit(event);
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
     
   return (
     <div className="flex flex-col items-center justify-center text-center min-h-screen">
@@ -61,7 +49,7 @@ const Signup = () => {
                     </div>
       <div className="flex flex-col justify-center items-center bg-[#ffffff] p-8 border-2 border-[#264143] rounded-2xl shadow-[3px_4px_0px_1px_#E99F4C] w-auto">
         <p className="text-[#264143] font-extrabold text-2xl mb-5">SIGN UP</p>
-        <form className="w-full" onSubmit={handleSubmit}>
+        <form className="w-full" action='#' method='POST' onSubmit={handleSubmit}>
           <div className="flex flex-col items-start mb-4">
             <label className="font-semibold mb-1 text-left" htmlFor="name">Name</label>
             <input 
