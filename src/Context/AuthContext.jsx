@@ -5,12 +5,17 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState("")
 
   useEffect(() => {
     // Check if token is in localStorage on initial load
     const token = localStorage.getItem('token');
+    const email = localStorage.getItem('email');
     if (token) {
       setIsAuthenticated(true);
+    }
+    if(email){
+      setUser(email)
     }
   }, []);
 

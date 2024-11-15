@@ -5,7 +5,7 @@ import {AuthContext} from '../../Context/AuthContext.jsx'
 import { ToastContainer, toast } from 'react-toastify';
 
 const Signup = () => {
-  const { isAuthenticated,setIsAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated,setIsAuthenticated ,setUser} = useContext(AuthContext);
   const [credentials, setCredentials] = useState({name:"",email:"", password:""});
 
   let history = useNavigate();
@@ -27,6 +27,7 @@ const Signup = () => {
     if(json.success) {
       // save the auth token and redirect
       localStorage.setItem('token',json.authToken);
+      localStorage.setItem('email' , credentials.email)
       setIsAuthenticated(true);
       toast.success("Successfully Signed Up");
       history("/");
