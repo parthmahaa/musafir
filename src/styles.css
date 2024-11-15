@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url('/musafir/public/fonts/Lato-Regular.ttf') format('ttf'),
+         url('/musafir/public/fonts/Lato-Light.ttf') format('ttf'),
+         url('/musafir/public/fonts/Lato-Bold.ttf') format('ttf'),
+         url('/musafir/public/fonts/Lato-Black.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
