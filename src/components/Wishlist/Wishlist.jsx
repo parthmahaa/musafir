@@ -1,9 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { MdDelete } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 import { WishlistContext } from '../../Context/WishlistContext';
+import { toast } from 'react-toastify';
 
 function wishlist() {
+  const navigate = useNavigate()
+  const token = localStorage.getItem('token')
+
   const {setWishlistItems,wishlistItems} =useContext(WishlistContext)
   const Email = localStorage.getItem('email')
   const getWishlist = async() =>{
@@ -41,6 +46,7 @@ function wishlist() {
         setWishlistItems((prevItems) =>
           prevItems.filter((item) => item.Name !== itemName)
         );
+        toast.success("Removed from wishlist")
       } else {
         console.log("Error deleting item");
       }
@@ -49,10 +55,15 @@ function wishlist() {
     }
   };
 
-  
   useEffect(() => {
+    // Check if token exists, if not redirect to home page
+    if (!token) {
+      navigate('/');
+      return;
+    }
     getWishlist();
-  }, []);
+  }, [token, navigate]);
+  
   return (
     <div className="min-h-screen bg-white py-8 px-4 sm:px-6 lg:px-8">
     <div className="max-w-3xl mx-auto">

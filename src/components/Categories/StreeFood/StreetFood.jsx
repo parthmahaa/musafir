@@ -1,9 +1,14 @@
-import React ,{useState , useEffect} from 'react'
+import React ,{useState , useEffect,useContext} from 'react'
 import { Link } from 'react-router-dom'
 import { FaRegHeart ,FaHeart } from "react-icons/fa";
+import { WishlistContext } from '../../../Context/WishlistContext';
+import Spinner from '../../Spinner'
 
 function StreetFood() {
+  const { wishlistItems, setWishlistItems } = useContext(WishlistContext);
+  const email = localStorage.getItem('email');
   const [street,setStreet] = useState("")
+
   const getData = async() =>{
     try{
         const response = await fetch("http://localhost:5000/street_food" , {
@@ -12,7 +17,11 @@ function StreetFood() {
         if(response.ok) {
           const data = await response.json()
           console.log(data.msg);
-          setStreet(data.msg)
+          const streetWithLikedStatus = data.msg.map((street) => ({
+            ...street,
+            liked: wishlistItems.some((item) => item.Name === street.name),
+          }));
+          setStreet(streetWithLikedStatus)
         }
         else{
           console.log("object");
@@ -25,12 +34,65 @@ function StreetFood() {
   useEffect(() => {
     getData();
   }, []);
-  const handleLikeToggle = (index) => {
+
+  const handleWishlistUpdate = async (s, isLiking) => {
+    if (!email) {
+      alert('Please login to add items to wishlist');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/wishlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          
+            Name: s.name,
+            Location: s.location,
+            Rating: s.rating,
+            Image: s.img,
+            userEmail: email,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(
+          isLiking ? 'Added to wishlist' : 'Removed from wishlist',
+          data
+        );
+
+        // Update wishlist context
+        if (isLiking) {
+          setWishlistItems((prev) => [...prev, s]);
+        } else {
+          setWishlistItems((prev) =>
+            prev.filter((item) => item._id !== s._id)
+          );
+        }
+      } else {
+        console.log('Failed to update wishlist');
+      }
+    } catch (error) {
+      console.log('Error updating wishlist:', error);
+    }
+  };
+
+  const handleLikeToggle = async (index) => {
+    const s= street[index];
+    const isLiking = !s.liked;
+
+    // Optimistically update UI
     setStreet((prev) =>
       prev.map((place, i) =>
-        i === index ? { ...place, liked: !place.liked } : place
+        i === index ? { ...place, liked: isLiking } : place
       )
     );
+
+    // Make API call
+    await handleWishlistUpdate(s, isLiking);
   };
   return (
     <>  
@@ -125,7 +187,7 @@ function StreetFood() {
                 </div>
               ))
             ) : (
-              <p className="text-center text-gray-600">No data available currently</p>
+              <Spinner/>
             )}
           </div>
       </div>

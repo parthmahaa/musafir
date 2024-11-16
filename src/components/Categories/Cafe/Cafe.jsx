@@ -1,37 +1,98 @@
-import React, { useEffect ,useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { FaRegHeart ,FaHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
+import { WishlistContext } from '../../../Context/WishlistContext';
+import Spinner from '../../Spinner'
 
 function Cafe() {
-  const [cafes,setCafes] = useState("")
-  const getData = async() =>{
-      try{
-        const response = await fetch("http://localhost:5000/cafe" , {
-          method: "GET"
-        }) 
-        if(response.ok) {
-          const data = await response.json()
-          console.log(data.msg);
-          setCafes(data.msg)
-        }
-        else{
-          console.log("object");
-        }
-    }
-    catch(err){
+  const { wishlistItems, setWishlistItems } = useContext(WishlistContext);
+  const email = localStorage.getItem('email');
+  const [cafes, setCafes] = useState('');
+
+  const getData = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/cafe', {
+        method: 'GET',
+      });
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.msg);
+        const cafesWithLikedStatus = data.msg.map((cafe) => ({
+          ...cafe,
+          liked: wishlistItems.some((item) => item.Name === cafe.name),
+        }));
+        setCafes(cafesWithLikedStatus);
+      } else {
+        console.log('object');
+      }
+    } catch (err) {
       console.log(`error: ${err}`);
     }
-  }
+  };
+
   useEffect(() => {
     getData();
   }, []);
-  const handleLikeToggle = (index,e) => {
+
+  const handleWishlistUpdate = async (cafe, isLiking) => {
+    if (!email) {
+      alert('Please login to add items to wishlist');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/wishlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          
+            Name: cafe.name,
+            Location: cafe.location,
+            Rating: cafe.rating,
+            Image: cafe.img,
+            userEmail: email,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(
+          isLiking ? 'Added to wishlist' : 'Removed from wishlist',
+          data
+        );
+
+        // Update wishlist context
+        if (isLiking) {
+          setWishlistItems((prev) => [...prev, cafe]);
+        } else {
+          setWishlistItems((prev) =>
+            prev.filter((item) => item._id !== cafe._id)
+          );
+        }
+      } else {
+        console.log('Failed to update wishlist');
+      }
+    } catch (error) {
+      console.log('Error updating wishlist:', error);
+    }
+  };
+
+  const handleLikeToggle = async (index) => {
+    const cafe = cafes[index];
+    const isLiking = !cafe.liked;
+
+    // Optimistically update UI
     setCafes((prev) =>
       prev.map((place, i) =>
-        i === index ? { ...place, liked: !place.liked } : place
+        i === index ? { ...place, liked: isLiking } : place
       )
     );
+
+    // Make API call
+    await handleWishlistUpdate(cafe, isLiking);
   };
   return (
     <>
@@ -91,38 +152,43 @@ function Cafe() {
             </div>
           </div>
           <div className="grid gap-6  gap-y-20  py-10 pb-56 md:grid-cols-4 lg:grid-cols-3">
-          {cafes.length > 0 ? ( 
-              cafes.map((cafe, index) => ( 
-                <div key={index} className="w-[405px] h-500px bg-white p-4 rounded-xl border-2 border-gray-300 overflow-hidden text-black">
+            {cafes.length > 0 ? (
+              cafes.map((cafe, index) => (
+                <div
+                  key={index}
+                  className="w-[405px] h-500px bg-white p-4 rounded-xl border-2 border-gray-300 overflow-hidden text-black"
+                >
                   <img
-                    src={cafe.img} 
+                    src={cafe.img}
                     className="object-cover w-full h-48"
-                    alt={cafe.name} 
+                    alt={cafe.name}
                   />
                   <div className="flex flex-col gap-2 mt-4">
-                  <p className="flex flex-row justify-between pt-2 text-black  text-lg font-medium">{cafe.tag} 
-                  <Link
-                      className='pr-3 pt-1 text-xl text-center flex items-center justify-center rounded-full p-2 transition-colors duration-300'
-                      onClick={(e) => handleLikeToggle(index)} // Pass index to the like toggle function
-                    >
-                      {cafe.liked ? (
-                        <FaHeart className='text-red-500' /> // Solid heart filled with red
-                      ) : (
-                        <FaRegHeart className='text-gray-500' /> // Regular heart not filled
-                      )}
-                    </Link></p> 
+                    <p className="flex flex-row justify-between pt-2 text-black  text-lg font-medium">
+                      {cafe.tag}
+                      <Link
+                        className="pr-3 pt-1 text-xl text-center flex items-center justify-center rounded-full p-2 transition-colors duration-300"
+                        onClick={(e) => handleLikeToggle(index)} // Pass index to the like toggle function
+                      >
+                        {cafe.liked ? (
+                          <FaHeart className="text-red-500" /> // Solid heart filled with red
+                        ) : (
+                          <FaRegHeart className="text-gray-500" /> // Regular heart not filled
+                        )}
+                      </Link>
+                    </p>
                     <div className="flex text-black text-2xl font-bold">
-                      <div id="priceDiscountCent">{cafe.name}</div> 
+                      <div id="priceDiscountCent">{cafe.name}</div>
                     </div>
                     <div className="opacity-80 text-base font-semibold">
-                      {cafe.description} 
+                      {cafe.description}
                     </div>
-                    <p>Rating: {cafe.rating}⭐</p> 
+                    <p>Rating: {cafe.rating}⭐</p>
                     <a
                       className="text-blue-600 underline mt-2"
                       target="_blank"
                       rel="noopener noreferrer"
-                      href={cafe.location} 
+                      href={cafe.location}
                     >
                       Directions
                     </a>
@@ -130,11 +196,11 @@ function Cafe() {
                 </div>
               ))
             ) : (
-              <p className="text-center text-gray-600">Loading cafes...</p> 
+              <Spinner/>
             )}
           </div>
-          </div>
         </div>
+      </div>
     </>
   );
 }

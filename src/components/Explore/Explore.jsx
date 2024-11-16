@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
+import { WishlistContext } from '../../Context/WishlistContext';
+import Spinner from '../Spinner'
 
 function Blogs() {
+  const { wishlistItems, setWishlistItems } = useContext(WishlistContext);
+  const email = localStorage.getItem('email');
   const [explore, setExplore] = useState([]);
 
   const getData = async () => {
@@ -12,11 +16,11 @@ function Blogs() {
       });
       if (response.ok) {
         const data = await response.json();
-        const placesWithLikes = data.msg.map((place) => ({
+        const placesWithLikedStatus = data.msg.map((place) => ({
           ...place,
-          liked: false, // Initialize the liked state for each place
+          liked: wishlistItems.some((item) => item.Name === place.name),
         }));
-        setExplore(placesWithLikes);
+        setExplore(placesWithLikedStatus);
       } else {
         console.log('Failed to fetch data');
       }
@@ -29,13 +33,64 @@ function Blogs() {
     getData();
   }, []);
 
-  // Function to handle liking a specific place
-  const handleLikeToggle = (index) => {
+  const handleWishlistUpdate = async (e, isLiking) => {
+    if (!email) {
+      alert('Please login to add items to wishlist');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/wishlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          
+            Name: e.name,
+            Location: e.location,
+            Rating: e.rating,
+            Image: e.img,
+            userEmail: email,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(
+          isLiking ? 'Added to wishlist' : 'Removed from wishlist',
+          data
+        );
+
+        // Update wishlist context
+        if (isLiking) {
+          setWishlistItems((prev) => [...prev, e]);
+        } else {
+          setWishlistItems((prev) =>
+            prev.filter((item) => item._id !== e._id)
+          );
+        }
+      } else {
+        console.log('Failed to update wishlist');
+      }
+    } catch (error) {
+      console.log('Error updating wishlist:', error);
+    }
+  };
+
+  const handleLikeToggle = async (index) => {
+    const e = explore[index];
+    const isLiking = !e.liked;
+
+    // Optimistically update UI
     setExplore((prev) =>
       prev.map((place, i) =>
-        i === index ? { ...place, liked: !place.liked } : place
+        i === index ? { ...place, liked: isLiking } : place
       )
     );
+
+    // Make API call
+    await handleWishlistUpdate(e, isLiking);
   };
 
   return (
@@ -135,7 +190,7 @@ function Blogs() {
               </div>
             ))
           ) : (
-            <p className="text-center text-gray-600">Loading Explore...</p>
+            <Spinner/>
           )}
         </div>
       </div>
