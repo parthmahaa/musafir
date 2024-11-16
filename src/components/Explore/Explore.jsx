@@ -96,7 +96,7 @@ function Blogs() {
   return (
     <div>
       <div className="mx-auto max-w-7xl px-2">
-        <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
+        <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-10">
           <p className="text-3xl font-bold text-gray-900 md:text-5xl md:leading-10">Trending</p>
           <p className="max-w-4xl font-semibold text-gray-600 md:text-left">
             Looking to explore and get ideas about a new place? Use our platform
