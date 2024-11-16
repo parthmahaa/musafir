@@ -6,6 +6,7 @@ import newsletter from './routes/newsletter.js'
 import streetFood from './routes/streetFood.js'
 import trending from './routes/trending.js'
 import cafe from './routes/cafe.js'
+import wishlist  from './routes/wishlist.js'
 const app = express()
 const port= 5000
 
@@ -35,6 +36,7 @@ app.use('/historical' ,historical)
 app.use('/cafe' ,cafe)
 app.use('/street_food' ,streetFood)
 app.use('/explore' ,trending)
+app.use('/wishlist' ,wishlist)
 
 
 app.listen(port, () => {

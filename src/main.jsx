@@ -6,6 +6,7 @@ import { Route, BrowserRouter as Router, Routes} from 'react-router-dom'
 import './index.css'
 
 //Files
+import { WishlistProvider } from './Context/WishlistContext.jsx';
 import { AuthProvider } from './Context/AuthContext.jsx'
 import Layout from './components/Pages/Layout.jsx'
 import Home from './components/Home/Home.jsx'
@@ -23,6 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <AuthProvider>
+      <WishlistProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -37,6 +39,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="login" element={<LoginPage />} />
         <Route path="signup" element={<SignupPage />} />
       </Routes>
+      </WishlistProvider>
       </AuthProvider>
     </Router>
     <ToastContainer
