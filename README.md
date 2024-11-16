@@ -7,9 +7,9 @@ Our main aim to provide one stop destination about various street food places ac
 
 Right now the data is limited to Surat only.
 ## Tech Stack
-**Client:** Vite,TailwindCSS,Emailjs 
+**Client:** Vite + React, TailwindCSS, 
 
-**Server:** Node,Express,Mongoose,cors,axios,JWT
+**Server:** Node, Express, Mongoose, cors, axios, JWT
 
 
 ## Authors
