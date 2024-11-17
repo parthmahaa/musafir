@@ -25,7 +25,7 @@ function Contact() {
   
       if(json.success) {
         emailjs
-        .sendForm('service_2iurodi', 'template_1mmca0s', form.current, {
+        .sendForm('service_s0dp77g', 'template_1mmca0s', form.current, {
           publicKey: 'ElFYig7j9EWHUIp2x',
         })
         .then(

@@ -79,6 +79,7 @@ function Login() {
               <input
                 className="flex outline-none border-2 border-[#264143] shadow-[3px_4px_0px_1px_#E99F4C] w-full p-3 rounded-md text-sm focus:translate-y-1 focus:shadow-[1px_2px_0px_0px_#E99F4C]"
                 type="email"
+                required
                 name='email'
                 value={credentials.email}
                 onChange={onChange}
@@ -106,6 +107,7 @@ function Login() {
                 className="flex outline-none border-2 border-[#264143] shadow-[3px_4px_0px_1px_#E99F4C] w-full p-3 rounded-md text-sm focus:translate-y-1 focus:shadow-[1px_2px_0px_0px_#E99F4C]"
                 type="password"
                 name='password'
+                required
                 value={credentials.password}
                 onChange={onChange}
                 placeholder="Password"
