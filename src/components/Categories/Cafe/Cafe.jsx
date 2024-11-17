@@ -9,6 +9,7 @@ function Cafe() {
   const { wishlistItems, setWishlistItems } = useContext(WishlistContext);
   const email = localStorage.getItem('email');
   const [cafes, setCafes] = useState('');
+  const [searchText, setSearchText] =useState("")
 
   const getData = async () => {
     try {
@@ -94,6 +95,10 @@ function Cafe() {
     // Make API call
     await handleWishlistUpdate(cafe, isLiking);
   };
+  const searchWeb = async (text)=>{
+    toast.info("This feature is still under development")
+  }
+
   return (
     <>
       <div>
@@ -114,10 +119,13 @@ function Cafe() {
               <input
                 className="flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
                 placeholder="Search Places"
               />
               <button
                 type="button"
+                onClick={() => searchWeb(searchText)}
                 className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Search

@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import { FaRegHeart ,FaHeart} from "react-icons/fa";
 import { WishlistContext } from '../../../Context/WishlistContext';
 import Spinner from '../../Spinner'
+import { toast } from 'react-toastify';
 
 function Historical() {
   const { wishlistItems, setWishlistItems } = useContext(WishlistContext);
   const email = localStorage.getItem('email');
   const [historical,setHistorical] = useState("")
+  const [searchText, setSearchText] =useState("")
 
   const getData = async() =>{
     try{
@@ -94,6 +96,9 @@ function Historical() {
     // Make API call
     await handleWishlistUpdate(h, isLiking);
   };
+  const searchWeb = async (text)=>{
+    toast.info("This feature is still under development")
+  }
 
   return (
     <>  
@@ -111,10 +116,13 @@ function Historical() {
         <input
           className="flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
           type="text"
+          value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
           placeholder="Search Places"
         />
         <button
           type="button"
+          onClick={() => searchWeb(searchText)}
           className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
           Search
@@ -125,13 +133,13 @@ function Historical() {
     <div className="mt-10 hidden w-full flex-col justify-between space-y-4 md:flex md:flex-row">
       <div className="flex w-full items-end border-b border-gray-300">
       <Link to='/explore'>
-        <div className="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-">
+        <div className="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2">
           Trending
         </div>
         </Link>
 
         <Link to='/cafe'>
-          <div className="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-">
+          <div className="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2">
           Cafe
           </div>
         </Link>
@@ -142,7 +150,7 @@ function Historical() {
         </div>
         </Link>
         <Link to='/historical'>
-        <div className="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 2 first:border-black first:border-b-2 ">
+        <div className="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700  first:border-black first:border-b-2 ">
           Historical Places
         </div>
         </Link>

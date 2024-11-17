@@ -2,9 +2,9 @@ import React from 'react';
 
 const Spinner = () => {
   return (
-    <div className='flex justify-center items-center h-screen'>
+    <div className='flex justify-center items-center'>
       <div className="w-10 flex justify-center items-center animate-spin">
-      <svg viewBox="25 25 50 50" className="w-full h-full">
+      <svg viewBox="25 25 50 50" className="w-full  h-full">
         <circle
           cx="50"
           cy="50"
@@ -13,7 +13,7 @@ const Spinner = () => {
           stroke="hsl(214, 97%, 59%)"
           strokeWidth="2"
           strokeLinecap="round"
-          className="animate-dash"
+          className="animate-dash "
         ></circle>
       </svg>
       <style>
