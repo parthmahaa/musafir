@@ -15,7 +15,7 @@ app.use(cors())
 app.use(express.json())
 
 //DB connection
-mongoose.connect("mongodb://127.0.0.1:27017/cityGuide" ,{})
+mongoose.connect("mongodb+srv://parthmaha9:secret2564@musafir.gft0t.mongodb.net/cityGuide" ,{})
 .then(()=>{
     console.log("mongoDb connceted");
 })

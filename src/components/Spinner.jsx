@@ -2,7 +2,8 @@ import React from 'react';
 
 const Spinner = () => {
   return (
-    <div className="w-13 animate-spin">
+    <div className='flex justify-center items-center h-screen'>
+      <div className="w-10 flex justify-center items-center animate-spin">
       <svg viewBox="25 25 50 50" className="w-full h-full">
         <circle
           cx="50"
@@ -37,6 +38,7 @@ const Spinner = () => {
           }
         `}
       </style>
+    </div>
     </div>
   );
 };
