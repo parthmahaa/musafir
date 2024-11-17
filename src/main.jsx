@@ -43,16 +43,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </AuthProvider>
     </Router>
     <ToastContainer
-    position="top-center"
-    autoClose={1000}
-    hideProgressBar={false}
-    newestOnTop
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss
-    draggable
-    pauseOnHover={false}
-    theme="light"
+      position="top-center"
+      autoClose={1000}
+      hideProgressBar={false}
+      newestOnTop
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover={false}
+      theme="light"
     />
   </React.StrictMode>
 );

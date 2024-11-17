@@ -16,7 +16,6 @@ export default function Header() {
         setIsAuthenticated(false);
         localStorage.removeItem('token');
         toast.success("Logged Out");
-        setIsSidebarOpen(false);
     };
 
     const toggleSidebar = () => {
@@ -166,7 +165,7 @@ export default function Header() {
                                     <button
                                         onClick={() => {
                                             handleLogout();
-                                            setIsSidebarOpen(false);
+                                            setIsSidebarOpen(false)
                                         }}
                                         className="block w-full text-center text-gray-800 hover:bg-gray-200 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2.5 focus:outline-none"
                                     >

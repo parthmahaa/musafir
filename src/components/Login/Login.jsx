@@ -2,10 +2,10 @@
 import { useNavigate, Link } from 'react-router-dom'
 import {AuthContext} from '../../Context/AuthContext.jsx'
 import img1 from '../../assets/logo.png'
-import { toast } from 'react-toastify';
+import { ToastContainer,toast } from 'react-toastify';
 
 function Login() {
-  const { setIsAuthenticated ,setUser} = useContext(AuthContext);
+  const { setIsAuthenticated} = useContext(AuthContext);
   const [credentials, setCredentials] = useState({email:"", password:""});
 
   let history = useNavigate();
