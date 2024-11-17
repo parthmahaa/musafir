@@ -10,7 +10,9 @@ function Cafe() {
   const email = localStorage.getItem('email');
   const [cafes, setCafes] = useState('');
   const [searchText, setSearchText] =useState("")
-
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const navItems = ['Trending', 'Cafe', 'Street Food', 'Historical Places'];
+  
   const getData = async () => {
     try {
       const response = await fetch('http://localhost:5000/cafe', {
@@ -101,114 +103,106 @@ function Cafe() {
 
   return (
     <>
-      <div>
-        <div className="mx-auto max-w-7xl px-2">
-          <div className="flex flex-col space-y-8 pb-1 pt-1 md:pt-10">
-            <p className="text-3xl font-bold text-gray-900 md:text-5xl md:leading-10">
-              Cafe
-            </p>
-            <p className="max-w-4xl font-semibold text-gray-600 md:text-left">
-              Cafés across the city offer diverse experiences, from cozy
-              neighborhood spots with artisanal brews to bustling downtown cafés
-              perfect for people-watching. Each place has its own vibe, whether
-              it's rustic charm or sleek modern design, catering to both quiet
-              work sessions and social gatherings. With unique menus and
-              specialty drinks, every visit feels like a new discovery.
-            </p>
-            <div className="mt-6 flex w-full items-center space-x-2 md:w-1/3">
-              <input
-                className="flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                type="text"
-                value={searchText}
-                onChange={(e) => setSearchText(e.target.value)}
-                placeholder="Search Places"
-              />
-              <button
-                type="button"
-                onClick={() => searchWeb(searchText)}
-                className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              >
-                Search
-              </button>
-            </div>
-          </div>
-
-          <div className="mt-10 hidden w-full flex-col justify-between space-y-4 md:flex md:flex-row">
-            <div className="flex w-full items-end border-b border-gray-300">
-              <Link to="/explore">
-                <div className="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 ">
-                  Trending
-                </div>
-              </Link>
-
-              <Link to="/cafe">
-                <div className="cursor-pointer  px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 first:border-black">
-                  Cafe
-                </div>
-              </Link>
-
-              <Link to="/street_food">
-                <div className="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 ">
-                  Street Food
-                </div>
-              </Link>
-              <Link to="/historical">
-                <div className="cursor-pointer px-4 py-2 text-base font-semibold leading-normal text-gray-700 first:border-b-2 ">
-                  Historical Places
-                </div>
-              </Link>
-            </div>
-          </div>
-          <div className="grid gap-6  gap-y-20  py-10 pb-56 md:grid-cols-4 lg:grid-cols-3">
-            {cafes.length > 0 ? (
-              cafes.map((cafe, index) => (
-                <div
-                  key={index}
-                  className="w-[405px] h-500px bg-white p-4 rounded-xl border-2 border-gray-300 overflow-hidden text-black"
-                >
-                  <img
-                    src={cafe.img}
-                    className="object-cover w-full h-48"
-                    alt={cafe.name}
-                  />
-                  <div className="flex flex-col gap-2 mt-4">
-                    <p className="flex flex-row justify-between pt-2 text-black  text-lg font-medium">
-                      {cafe.tag}
-                      <Link
-                        className="pr-3 pt-1 text-xl text-center flex items-center justify-center rounded-full p-2 transition-colors duration-300"
-                        onClick={(e) => handleLikeToggle(index)} // Pass index to the like toggle function
-                      >
-                        {cafe.liked ? (
-                          <FaHeart className="text-red-500" /> // Solid heart filled with red
-                        ) : (
-                          <FaRegHeart className="text-gray-500" /> // Regular heart not filled
-                        )}
-                      </Link>
-                    </p>
-                    <div className="flex text-black text-2xl font-bold">
-                      <div id="priceDiscountCent">{cafe.name}</div>
-                    </div>
-                    <div className="opacity-80 text-base font-semibold">
-                      {cafe.description}
-                    </div>
-                    <p>Rating: {cafe.rating}⭐</p>
-                    <a
-                      className="text-blue-600 underline mt-2"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={cafe.location}
-                    >
-                      Directions
-                    </a>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <Spinner/>
-            )}
-          </div>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col space-y-6 py-8">
+        <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
+          Cafe
+        </h1>
+        <p className="max-w-4xl text-base sm:text-lg font-semibold text-gray-600">
+          Cafés across the city offer diverse experiences, from cozy
+          neighborhood spots with artisanal brews to bustling downtown cafés
+          perfect for people-watching. Each place has its own vibe, whether
+          it's rustic charm or sleek modern design, catering to both quiet
+          work sessions and social gatherings. With unique menus and
+          specialty drinks, every visit feels like a new discovery.
+        </p>
+        <div className="flex flex-col w-full space-y-2 sm:flex-row sm:space-y-0 sm:space-x-2">
+          <input
+            className="flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+            type="text"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            placeholder="Search Places"
+          />
+          <button
+            type="button"
+            onClick={() => searchWeb(searchText)}
+            className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            Search
+          </button>
         </div>
       </div>
+
+      <div className="mt-8 border-b border-gray-300 overflow-x-auto">
+        <nav className="flex whitespace-nowrap">
+          {navItems.map((item) => {
+            const itemPath = `/${item.toLowerCase().replace(' ', '_')}`;
+            const isActive = location.pathname === itemPath;
+            return (
+              <Link
+                key={item}
+                to={item=='Trending' ? '/explore' :itemPath}
+                className={`px-4 py-2 text-sm sm:text-base font-semibold leading-normal text-gray-700 flex-shrink-0 relative ${
+                  isActive 
+                    ? 'after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-black'
+                    : ''
+                }`}
+              >
+                {item}
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
+
+      <div className="grid gap-6 py-8 sm:grid-cols-2 lg:grid-cols-3">
+        {cafes.length > 0 ? (
+          cafes.map((cafe, index) => (
+            <div
+              key={index}
+              className="w-full bg-white p-4 rounded-xl border-2 border-gray-300 overflow-hidden text-black"
+            >
+              <img
+                src={cafe.img}
+                className="object-cover w-full h-48 rounded-lg"
+                alt={cafe.name}
+              />
+              <div className="flex flex-col gap-2 mt-4">
+                <div className="flex justify-between items-center">
+                  <p className="text-black text-lg font-medium">{cafe.tag}</p>
+                  <button
+                    className="text-xl flex items-center justify-center rounded-full p-2 transition-colors duration-300"
+                    onClick={() => handleLikeToggle(index)}
+                  >
+                    {cafe.liked ? (
+                      <FaHeart className="text-red-500" />
+                    ) : (
+                      <FaRegHeart className="text-gray-500" />
+                    )}
+                  </button>
+                </div>
+                <h2 className="text-black text-xl font-bold">{cafe.name}</h2>
+                <p className="text-gray-600 text-sm">{cafe.description}</p>
+                <p className="text-sm font-semibold">Rating: {cafe.rating}⭐</p>
+                <a
+                  className="text-blue-600 underline mt-2 text-sm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={cafe.location}
+                >
+                  Directions
+                </a>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="col-span-full flex justify-center items-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+          </div>
+        )}
+      </div>
+    </div>
     </>
   );
 }
