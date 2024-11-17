@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import { WishlistContext } from '../../../Context/WishlistContext';
-import Spinner from '../../Spinner'
 
 function Cafe() {
   const { wishlistItems, setWishlistItems } = useContext(WishlistContext);

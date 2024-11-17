@@ -2,7 +2,6 @@ import React, { useState, useEffect ,useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { WishlistContext } from '../../Context/WishlistContext';
-import Spinner from '../Spinner'
 import { toast } from 'react-toastify';
 
 function Blogs() {
