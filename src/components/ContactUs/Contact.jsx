@@ -25,13 +25,13 @@ function Contact() {
 
     if (json.success) {
       emailjs
-        .sendForm('service_s0dp77g', 'template_1mmca0s', form.current, {
+        .sendForm('service_23y8sdp', 'template_1mmca0s', form.current, {
           publicKey: 'ElFYig7j9EWHUIp2x',
         })
         .then(
           () => {
             console.log('Mail sent!');
-            toast.success('you have been subscribed');
+            toast.success('You have been subscribed');
             history('/');
           },
           (error) => {
