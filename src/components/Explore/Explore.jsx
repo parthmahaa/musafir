@@ -13,7 +13,7 @@ function Blogs() {
 
   const getData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/explore', {
+      const response = await fetch('https://musafir-4lbu.onrender.com/explore', {
         method: 'GET',
       });
       if (response.ok) {
@@ -42,7 +42,7 @@ function Blogs() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/wishlist', {
+      const response = await fetch('https://musafir-4lbu.onrender.com/wishlist', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

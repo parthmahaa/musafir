@@ -13,7 +13,7 @@ function StreetFood() {
 
   const getData = async() =>{
     try{
-        const response = await fetch("http://localhost:5000/street_food" , {
+        const response = await fetch("https://musafir-4lbu.onrender.com/street_food" , {
           method: "GET"
         }) 
         if(response.ok) {
@@ -44,7 +44,7 @@ function StreetFood() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/wishlist', {
+      const response = await fetch('https://musafir-4lbu.onrender.com/wishlist', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
