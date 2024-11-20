@@ -27,6 +27,7 @@ import Cafe from './models/Cafe.js'
 import Historical from './models/Historical.js'
 import StreetFood from './models/StreetFood.js'
 import Trending from './models/Trending.js'
+import Wishlist from './models/Wishlist.js'
 
 
 //ROUTES
