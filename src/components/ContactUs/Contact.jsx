@@ -13,7 +13,7 @@ function Contact() {
   const sendMail = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:5000/contact-us', {
+    const response = await fetch('https://musafir-4lbu.onrender.com/contact-us', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
