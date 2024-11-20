@@ -15,7 +15,9 @@ app.use(cors())
 app.use(express.json())
 
 //DB connection
-mongoose.connect("mongodb+srv://parthmaha9:secret2564@musafir.gft0t.mongodb.net/cityGuide" ,{})
+mongoose.connect("mongodb+srv://parthmaha9:secret2564@musafir.gft0t.mongodb.net/cityGuide" ,{
+    serverSelectionTimeoutMS: 30000, // Increase timeout
+  })
 .then(()=>{
     console.log("mongoDb connceted");
 })
