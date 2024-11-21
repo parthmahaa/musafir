@@ -16,6 +16,7 @@ export default function Header() {
         setIsAuthenticated(false);
         localStorage.removeItem('token');
         toast.success("Logged Out");
+        setIsSidebarOpen(false);
     };
 
     const toggleSidebar = () => {
@@ -59,7 +60,10 @@ export default function Header() {
                         </Link>
                         <Link
                             hidden={!isAuthenticated}
-                            onClick={handleLogout}
+                            onClick={() => {
+                                handleLogout()
+                                
+                            }}
                             className="text-gray-800 hover:bg-gray-200 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
                         >
                             Log Out
@@ -123,7 +127,7 @@ export default function Header() {
                                         className={({isActive}) =>
                                             `block py-2 ${isActive ? "text-orange-700" : "text-gray-700"} hover:text-orange-700`
                                         }
-                                        onClick={() => setIsSidebarOpen(false)}
+                                        onClick={() => toggleSidebar()}
                                     >
                                         Home
                                     </NavLink>
@@ -134,7 +138,7 @@ export default function Header() {
                                         className={({isActive}) =>
                                             `block py-2 ${isActive ? "text-orange-700" : "text-gray-700"} hover:text-orange-700`
                                         }
-                                        onClick={() => setIsSidebarOpen(false)}
+                                        onClick={() => toggleSidebar()}
                                     >
                                         About
                                     </NavLink>
@@ -145,7 +149,7 @@ export default function Header() {
                                         className={({isActive}) =>
                                             `block py-2 ${isActive ? "text-orange-700" : "text-gray-700"} hover:text-orange-700`
                                         }
-                                        onClick={() => setIsSidebarOpen(false)}
+                                        onClick={() => toggleSidebar()}
                                     >
                                         Explore
                                     </NavLink>
@@ -156,7 +160,7 @@ export default function Header() {
                                     <Link
                                         to="/login"
                                         className="block w-full text-center text-gray-800 hover:bg-gray-200 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2.5 focus:outline-none"
-                                        onClick={() => setIsSidebarOpen(false)}
+                                        onClick={() => toggleSidebar()}
                                     >
                                         Log in
                                     </Link>
@@ -165,7 +169,6 @@ export default function Header() {
                                     <button
                                         onClick={() => {
                                             handleLogout();
-                                            setIsSidebarOpen(false)
                                         }}
                                         className="block w-full text-center text-gray-800 hover:bg-gray-200 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2.5 focus:outline-none"
                                     >
@@ -175,7 +178,7 @@ export default function Header() {
                                 <Link
                                     to="/contact-us"
                                     className="block w-full text-center text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2.5 focus:outline-none"
-                                    onClick={() => setIsSidebarOpen(false)}
+                                    onClick={() => toggleSidebar()}
                                 >
                                     Subscribe
                                 </Link>

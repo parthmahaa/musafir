@@ -178,7 +178,15 @@ function Historical() {
                 </div>
                 <h2 className="text-black text-xl font-bold">{place.name}</h2>
                 <p className="text-gray-600 text-sm">{place.description}</p>
-                <p className="text-sm font-semibold">Rating: {place.rating}⭐</p>
+                {place.rating ? (
+                    <div className="flex items-center mt-1">
+                      <span className="text-sm font-semibold text-orange-800">
+                        {place.rating}⭐
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="mt-0 pt-o">&nbsp;</div> // Empty space for alignment
+                  )}
                 <a
                   className="text-blue-600 underline mt-2 text-sm"
                   target="_blank"
