@@ -63,7 +63,7 @@ function Login() {
         <a
           href="/signup"
           title=""
-          className="font-semibold text-blue-600 transition-all duration-200 hover:underline"
+          className="font-semibold text-black transition-all duration-200 hover:underline"
         >
           Create a free account
         </a>

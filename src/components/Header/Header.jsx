@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import {Link, NavLink, useNavigate} from 'react-router-dom'
+import {Link, NavLink, useNavigate } from 'react-router-dom'
 import {AuthContext} from '../../Context/AuthContext.jsx'
 import img1 from '../../assets/musafir-high-resolution-logo-transparent.png'
 import { useContext , useEffect} from 'react';
@@ -13,14 +13,29 @@ export default function Header() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const handleLogout = () => {
-        setIsAuthenticated(false);
-        localStorage.removeItem('token');
-        toast.success("Logged Out");
-        setIsSidebarOpen(false);
+        try {
+            setIsAuthenticated(false);
+            localStorage.removeItem('token');
+            toast.success("Logged Out", {
+                toastId: 'logout-success', // Unique ID to prevent multiple toasts
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true
+            });
+            setIsSidebarOpen(false);
+        } catch (error) {
+            console.error("Logout error:", error);
+            toast.error("Logout failed", {
+                toastId: 'logout-error'
+            });
+        }
     };
 
     const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
+        setIsSidebarOpen(prevState => !prevState);
     };
 
     return (
@@ -187,7 +202,14 @@ export default function Header() {
                     </div>
                 </div>
             </nav>
-            <ToastContainer />
+            <ToastContainer 
+                limit={3} // Limit number of simultaneous toasts
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                pauseOnHover
+            />
         </header>
     );
 }
