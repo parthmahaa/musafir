@@ -7,33 +7,40 @@ import { ToastContainer, toast } from 'react-toastify';
 const Signup = () => {
   const { isAuthenticated,setIsAuthenticated ,setUser} = useContext(AuthContext);
   const [credentials, setCredentials] = useState({name:"",email:"", password:""});
+  const [isLoading, setIsLoading] = useState(false);
 
   let history = useNavigate();
   console.log(isAuthenticated,"singup");
   const handleSubmit = async (e) => {
-
     e.preventDefault();
+    setIsLoading(true);
 
-    const response = await fetch("https://musafir-4lbu.onrender.com/auth/signup", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({name:credentials.name, email: credentials.email , password: credentials.password})
-    });
-
-    const json = await response.json();
-
-    if(json.success) {
-      // save the auth token and redirect
-      localStorage.setItem('token',json.authToken);
-      localStorage.setItem('email' , credentials.email)
-      setIsAuthenticated(true);
-      toast.success("Successfully Signed Up");
-      history("/");
-      
-    } else {
-      toast.error("Invalid Credentials");
+    try{
+      const response = await fetch("https://musafir-4lbu.onrender.com/auth/signup", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({name:credentials.name, email: credentials.email , password: credentials.password})
+      });
+  
+      const json = await response.json();
+  
+      if(json.success) {
+        // save the auth token and redirect
+        localStorage.setItem('token',json.authToken);
+        localStorage.setItem('email' , credentials.email)
+        setIsAuthenticated(true);
+        toast.success("Successfully Signed Up");
+        history("/");
+        
+      } else {
+        toast.error("Invalid Credentials");
+      }
+    }catch(e){
+      toast.error('Login failed. Please try again.');
+    }finally{
+      setIsLoading(false);
     }
   }
 
@@ -92,7 +99,15 @@ const Signup = () => {
               onClick={handleSubmit}
               type="submit" 
               className="py-3 px-4 w-72 text-white bg-black rounded-lg font-bold text-sm shadow-[3px_3px_0px_0px_#E99F4C] hover:opacity-80 focus:translate-y-1">
-              SIGN UP
+              {isLoading ? (
+                    <div className="flex items-center justify-center">
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    </div>
+                  ) : (
+                    <div className="flex justify-center items-center">
+                      SignUp
+                    </div>
+                  )}
             </button>
             <p className="mt-4">Have an Account? <a className="font-bold text-[#264143]" href="/login">Login Here!</a></p>
           </div>

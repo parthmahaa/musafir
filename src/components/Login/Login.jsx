@@ -9,37 +9,44 @@ function Login() {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [isLoading, setIsLoading] = useState(false);
 
-  let history = useNavigate();
+  let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    const response = await fetch(
-      'https://musafir-4lbu.onrender.com/auth/login',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: credentials.email,
-          password: credentials.password,
-        }),
+    try {
+      const response = await fetch(
+        'https://musafir-4lbu.onrender.com/auth/login',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: credentials.email,
+            password: credentials.password,
+          }),
+        }
+      );
+
+      const json = await response.json();
+
+      if (json.success) {
+        localStorage.setItem('token', json.authToken);
+        localStorage.setItem('email', credentials.email);
+        setIsAuthenticated(true);
+        toast.success('Successfully Logged In');
+        navigate('/');
+      } else {
+        toast.error('Invalid Credentials');
       }
-    );
-
-    const json = await response.json();
-
-    if (json.success) {
-      // save the auth token and redirect
-      localStorage.setItem('token', json.authToken);
-      localStorage.setItem('email', credentials.email);
-      setIsAuthenticated(true);
-      toast.success('Successfully Logged In');
-      history('/');
-    } else {
-      toast.error('Invalid Credentials');
+    } catch (error) {
+      toast.error('Login failed. Please try again.');
+    } finally {
+      setIsLoading(false); // Set loading to false when operation completes
     }
+
   };
 
   const onChange = (e) => {
@@ -135,23 +142,17 @@ function Login() {
                 </div>
               </div>
               <div className="pt-3">
-                <button
+              <button
                   type="submit"
-                  onClick={handleSubmit}
                   disabled={isLoading}
-                  className={`inline-flex w-full items-center justify-center rounded-md px-3.5 py-2.5 font-semibold leading-7 text-white transition-all duration-200 ${
-                    isLoading
-                      ? 'bg-gray-500 cursor-not-allowed'
-                      : 'bg-black hover:bg-black/80'
-                  }`}
+                  className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white transition-all duration-200 hover:bg-black/80 disabled:bg-gray-400 disabled:cursor-not-allowed"
                 >
                   {isLoading ? (
-                    <div
-                      className="loader w-5 h-5 border-4 border-white border-t-transparent rounded-full animate-spin"
-                      aria-label="Loading"
-                    ></div>
+                    <div className="flex items-center justify-center">
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    </div>
                   ) : (
-                    <>
+                    <div className="flex items-center">
                       Log in
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +169,7 @@ function Login() {
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
                       </svg>
-                    </>
+                    </div>
                   )}
                 </button>
               </div>
