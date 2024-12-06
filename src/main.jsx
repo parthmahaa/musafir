@@ -22,6 +22,18 @@ import ContactUs from './components/Pages/ContactUs.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <ToastContainer
+      position="top-center"
+      autoClose={1000}
+      hideProgressBar={false}
+      newestOnTop
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss={false}
+      draggable
+      pauseOnHover={false}
+      theme="light"
+    />
     <Router>
       <AuthProvider>
       <WishlistProvider>
@@ -42,17 +54,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </WishlistProvider>
       </AuthProvider>
     </Router>
-    <ToastContainer
-      position="top-center"
-      autoClose={1000}
-      hideProgressBar={false}
-      newestOnTop
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss={false}
-      draggable
-      pauseOnHover={false}
-      theme="light"
-    />
   </React.StrictMode>
 );

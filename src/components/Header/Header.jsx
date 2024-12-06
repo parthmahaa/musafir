@@ -33,14 +33,7 @@ export default function Header() {
         try {
             setIsAuthenticated(false);
             localStorage.removeItem('token');
-            toast.success("Logged Out", {
-                position: "top-center",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-            });
+            toast.success("Logged Out");
         } catch (error) {
             console.error('Logout error:', error);
         }
