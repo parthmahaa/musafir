@@ -14,7 +14,7 @@ function wishlist() {
   const getWishlist = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/wishlist?userEmail=${Email}`,
+        `https://musafir-4lbu.onrender.com/wishlist?userEmail=${Email}`,
         {
           method: 'GET',
         }
