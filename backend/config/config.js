@@ -17,9 +17,9 @@ const config = {
     EMAIL_PASS: process.env.EMAIL_PASS
 };
 
-// Validate required environment variables
-if (!config.JWT_SECRET) {
-    throw new Error('JWT_SECRET must be defined in environment variables');
-}
+// // Validate required environment variables
+// if (!config.JWT_SECRET) {
+//     throw new Error('JWT_SECRET must be defined in environment variables');
+// }
 
 export default config;
