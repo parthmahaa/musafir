@@ -1,0 +1,157 @@
+[
+    {
+      "title": "Surat Foodie Adventure",
+      "description": "A weekend dive into Surat’s street food scene and vibrant attractions.",
+      "startDate": "2025-04-11T00:00:00.000Z",
+      "endDate": "2025-04-12T23:59:59.999Z",
+      "destinations": [
+        {
+          "name": "Gopi Talav",
+          "location": "Rustampura, Surat",
+          "activities": [
+            {
+              "name": "Lunch - Sev Khamani and Bhajiya",
+              "date": "2025-04-11T12:00:00.000Z",
+              "time": "12:00 PM",
+              "notes": "Savor these at lakeside stalls."
+            },
+            {
+              "name": "Evening Stroll",
+              "date": "2025-04-11T17:00:00.000Z",
+              "time": "5:00 PM",
+              "notes": "Enjoy the historic ambiance."
+            }
+          ],
+          "notes": "A renovated 16th-century lake with food stalls."
+        },
+        {
+          "name": "Chowk Bazaar",
+          "location": "Central Surat",
+          "activities": [
+            {
+              "name": "Dinner - Locho and Ghari",
+              "date": "2025-04-11T19:00:00.000Z",
+              "time": "7:00 PM",
+              "notes": "Try Locho at Jani Locho and Ghari from a local sweet shop."
+            }
+          ],
+          "notes": "Famous for street food and bustling markets."
+        }
+      ],
+      "budget": 50,
+      "suggestedBy": "Grok 3 by xAI",
+      "createdAt": "2025-04-03T16:26:00.000Z"
+    },
+    {
+      "title": "Cultural and Culinary Surat",
+      "description": "A 3-day journey through Surat’s rich history and diverse food offerings.",
+      "startDate": "2025-04-15T00:00:00.000Z",
+      "endDate": "2025-04-17T23:59:59.999Z",
+      "destinations": [
+        {
+          "name": "Sardar Patel Museum",
+          "location": "City Light Road, Surat",
+          "activities": [
+            {
+              "name": "Morning Visit",
+              "date": "2025-04-15T10:00:00.000Z",
+              "time": "10:00 AM",
+              "notes": "Explore Surat’s history and textile heritage."
+            }
+          ],
+          "notes": "A must-visit for cultural enthusiasts."
+        },
+        {
+          "name": "Rander",
+          "location": "Suburb of Surat",
+          "activities": [
+            {
+              "name": "Lunch - Rangooni Paratha",
+              "date": "2025-04-15T13:00:00.000Z",
+              "time": "1:00 PM",
+              "notes": "Enjoy at Mama Paratha."
+            },
+            {
+              "name": "Dinner - Surat-style Thali",
+              "date": "2025-04-15T19:00:00.000Z",
+              "time": "7:00 PM",
+              "notes": "A full meal with local flavors."
+            }
+          ],
+          "notes": "Known for its unique culinary offerings."
+        },
+        {
+          "name": "Dutch Garden",
+          "location": "Nanpura, Surat",
+          "activities": [
+            {
+              "name": "Street Food Tasting - Ponk and Khaja",
+              "date": "2025-04-16T18:00:00.000Z",
+              "time": "6:00 PM",
+              "notes": "Seasonal Ponk is a Surat specialty."
+            }
+          ],
+          "notes": "Colonial-era garden with a serene vibe."
+        }
+      ],
+      "budget": 80,
+      "suggestedBy": "Grok 3 by xAI",
+      "createdAt": "2025-04-03T16:26:00.000Z"
+    },
+    {
+      "title": "Surat Weekend Getaway",
+      "description": "A relaxing weekend with spiritual, natural, and food experiences.",
+      "startDate": "2025-04-18T00:00:00.000Z",
+      "endDate": "2025-04-20T23:59:59.999Z",
+      "destinations": [
+        {
+          "name": "Ambika Niketan Temple",
+          "location": "Athwa, Surat",
+          "activities": [
+            {
+              "name": "Morning Visit",
+              "date": "2025-04-18T09:00:00.000Z",
+              "time": "9:00 AM",
+              "notes": "Peaceful temple by the Tapi River."
+            },
+            {
+              "name": "Lunch - Undhiyu and Jalebi",
+              "date": "2025-04-18T12:30:00.000Z",
+              "time": "12:30 PM",
+              "notes": "Traditional Gujarati meal nearby."
+            }
+          ],
+          "notes": "A spiritual and scenic spot."
+        },
+        {
+          "name": "Sarthana Nature Park",
+          "location": "Eastern Surat",
+          "activities": [
+            {
+              "name": "Morning Nature Walk",
+              "date": "2025-04-19T08:00:00.000Z",
+              "time": "8:00 AM",
+              "notes": "Spot local wildlife and relax."
+            }
+          ],
+          "notes": "A green escape in the city."
+        },
+        {
+          "name": "VR Surat Mall",
+          "location": "Dumas Road, Surat",
+          "activities": [
+            {
+              "name": "Dinner - Anda Ghotala and Cold Coco",
+              "date": "2025-04-19T19:00:00.000Z",
+              "time": "7:00 PM",
+              "notes": "Try at nearby food courts or street vendors."
+            }
+          ],
+          "notes": "Modern shopping and dining hub."
+        }
+      ],
+      "budget": 60,
+      "suggestedBy": "Grok 3 by xAI",
+      "createdAt": "2025-04-03T16:26:00.000Z"
+    }
+  ]
