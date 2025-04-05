@@ -26,7 +26,7 @@ const port = process.env.PORT || 5000
 
 import cors from 'cors'
 app.use(cors({
-    origin: 'http://localhost:5173', // Your frontend URL
+    origin: 'musafir-main.vercel.app' || 'http://localhost:5173', // Your frontend URL
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
