@@ -19,7 +19,7 @@ const ReviewCarousel = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await axios.get('https://musafir-4lbu.onrender.com/review/all');
+      const response = await api.get('/review/all');
       if (response.data.success) {
         setReviews(response.data.reviews);
       } else {
