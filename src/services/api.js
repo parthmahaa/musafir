@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_DOMAIN,
+  baseURL: 'https://musafir-4lbu.onrender.com',
   headers: {
     'Content-Type': 'application/json',
   }
