@@ -5,7 +5,7 @@ export const uploadToCloudinary = async (file) => {
 
   try {
     const response = await fetch(
-      'https://api.cloudinary.com/v1_1/dg9qxalvh/image/upload',
+      import.meta.env.VITE_CLOUDINARY_API,
       {
         method: 'POST',
         body: formData,
