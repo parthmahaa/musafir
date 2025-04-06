@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
 import api from '../../services/api';
+import axios from "axios";
 
 const ReviewCarousel = () => {
   const [reviews, setReviews] = useState([]);
@@ -18,7 +19,7 @@ const ReviewCarousel = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await api.get('/review/all');
+      const response = await axios.get('https://musafir-4lbu.onrender.com/review/all');
       if (response.data.success) {
         setReviews(response.data.reviews);
       } else {
