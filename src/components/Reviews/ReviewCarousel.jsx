@@ -20,9 +20,8 @@ const ReviewCarousel = () => {
   const fetchReviews = async () => {
     try {
       const response = await axios.get('https://musafir-4lbu.onrender.com/review/all');
-      if (response.success) {
-        console.log(response.reviews);
-        setReviews(response.reviews);
+      if (response.data.success) {
+        setReviews(response.data.reviews);
       } else {
         toast.error("Failed to fetch reviews");
       }
