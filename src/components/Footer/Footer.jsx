@@ -76,7 +76,7 @@ export default function Footer() {
                             </ul>
                         </div>
 
-                        {/* Details */}
+                        {/* Details
                         <div>
                             <h2 className="mb-4 text-sm font-bold text-gray-900 uppercase tracking-wide">
                                 Details
@@ -100,7 +100,7 @@ export default function Footer() {
                                     </Link>
                                 </li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
