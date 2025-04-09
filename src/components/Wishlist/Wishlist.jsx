@@ -14,7 +14,7 @@ function wishlist() {
   const Email = localStorage.getItem('email');
   const getWishlist = async () => {
     try {
-      const response = await api.get('/user-wishlist' ,{
+      const response = await api.get('/wishlist/user-wishlist' ,{
         params : {email :Email}
       })
       if (response.data.success) {
