@@ -4,6 +4,7 @@ import { MdDelete } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { WishlistContext } from '../../Context/WishlistContext';
 import { toast } from 'react-toastify';
+import api from '../../services/api';
 
 function wishlist() {
   const navigate = useNavigate();
@@ -13,16 +14,11 @@ function wishlist() {
   const Email = localStorage.getItem('email');
   const getWishlist = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:5000/wishlist?userEmail=${Email}`,
-        {
-          method: 'GET',
-        }
-      );
-      if (response.ok) {
-        const data = await response.json();
-        const items = data.filter((item) => item.Email === Email);
-        setWishlistItems(items);
+      const response = await api.get('/user-wishlist' ,{
+        params : {email :Email}
+      })
+      if (response.data.success) {
+        setWishlistItems(response.data.wishlistItems)
       } else console.log('Error converting data to json');
     } catch (e) {
       console.log(e);
@@ -31,18 +27,13 @@ function wishlist() {
 
   const handleDelete = async (itemName) => {
     try {
-      const response = await fetch(`http://localhost:5000/wishlist`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+      const response = api.delete('/wishlist',{
+        data:{
           userEmail: Email,
-          itemName: itemName,
-        }),
-      });
-
-      if (response.ok) {
+          itemName : itemName
+        }
+      })
+      if (response.status===200) {
         console.log(`Item "${itemName}" deleted successfully`);
         setWishlistItems((prevItems) =>
           prevItems.filter((item) => item.Name !== itemName)
