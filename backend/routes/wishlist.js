@@ -14,7 +14,7 @@ router.get('/user-wishlist', async (req, res) => {
 
     try {
         const wishlistItems = await Wishlist.find({ Email: email })
-            .select('Name Location -_id'); // Only select Name and Location, exclude _id
+            .select('Name Location Image -_id'); // Only select Name and Location, exclude _id
         
             console.log(wishlistItems);
         return res.status(200).json({
