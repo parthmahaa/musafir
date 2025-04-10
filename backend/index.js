@@ -2,6 +2,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import express from 'express'
+import cron from 'node-cron'
+import fetch from 'node-fetch'
 import mongoose from 'mongoose'
 import config from './config/config.js'
 import auth from './routes/auth.js'
@@ -54,6 +56,15 @@ import Trip from './models/Trip.js'
 import Attractions from './models/Attractions.js';
 import Announcement from './models/Announcement.js'
 import SuggestTrip from './models/SuggestTrip.js';
+
+cron.schedule('*/10 * * * *', async () => {
+  try {
+    await fetch('https://musafir-4lbu.onrender.com'); // Replace with your actual Render URL
+    console.log('Self-ping successful - staying awake!');
+  } catch (error) {
+    console.error('Self-ping failed:', error);
+  }
+});
 
 //ROUTES
 app.use('/auth' ,auth)
