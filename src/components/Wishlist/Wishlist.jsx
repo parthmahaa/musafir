@@ -27,7 +27,7 @@ function wishlist() {
 
   const handleDelete = async (itemName) => {
     try {
-      const response = api.delete('/wishlist',{
+      const response = api.delete('',{
         data:{
           userEmail: Email,
           itemName : itemName
