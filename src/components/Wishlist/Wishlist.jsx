@@ -54,7 +54,7 @@ function wishlist() {
       return;
     }
     getWishlist();
-  }, [token, navigate]);
+  }, [token,wishlistItems]);
 
   return (
     <div className="min-h-screen bg-white py-8 px-4 sm:px-6 lg:px-8">
