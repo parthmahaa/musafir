@@ -28,7 +28,7 @@ function wishlist() {
   const handleDelete = async (itemName) => {
     try {
       const response = api.delete('/wishlist',{
-        data:{
+      data:{
           userEmail: Email,
           itemName : itemName
         }
@@ -54,9 +54,10 @@ function wishlist() {
       return;
     }
     getWishlist();
-  }, [token,wishlistItems]);
+  }, [token,navigate]);
 
   return (
+    <main>
     <div className="min-h-screen bg-white py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-2xl font-bold text-left text-orange-800 mb-6">
@@ -66,8 +67,8 @@ function wishlist() {
           {wishlistItems.length > 0 ? (
             wishlistItems.map((item, idx) => (
               <div
-                key={idx}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
+              key={idx}
+              className="bg-white rounded-lg shadow-md overflow-hidden"
               >
                 <div className="flex flex-row items-center">
                   <div className="flex-grow p-3">
@@ -91,14 +92,14 @@ function wishlist() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="ml-0 text-blue-500 text-sm"
-                        >
+                          >
                           Location
                         </a>
                       </div>
                       <button
                         onClick={() => handleDelete(item.Name)}
                         className="ml-2"
-                      >
+                        >
                         <MdDelete className="text-red-600 w-5 h-5 hover:text-red-300" />
                       </button>
                     </div>
@@ -109,7 +110,7 @@ function wishlist() {
                       src={item.Image}
                       alt={item.Name}
                       className="w-full h-full object-cover"
-                    />
+                      />
                   </div>
                 </div>
               </div>
@@ -122,6 +123,7 @@ function wishlist() {
         </div>
       </div>
     </div>
+    </main>
   );
 }
 
