@@ -43,12 +43,7 @@ cd backend && npm install
 ```
 ### 3.  Run the Project
 ```
-# Start the frontend
-npm run dev
-
-# Start the backend
-cd backend
-npm start
+npm run both
 ```
 
 ### 🤝Contributions
