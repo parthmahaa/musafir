@@ -7,21 +7,6 @@ Our mission is to create a **one-stop destination** for travelers to discover an
 
 ---
 
-## 🚀 Tech Stack
-
-### 👨‍💻 Client
-- **React** + **Vite**
-- **TailwindCSS**
-- **Axios**
-
-### 🛠 Server
-- **Node.js**, **Express.js**
-- **MongoDB** with **Mongoose**
-- **JWT** for Authentication
-- **CORS** for API Security
-
----
-
 ## 🌟 Features
 
 - 🔐 User Authentication with JWT
@@ -33,6 +18,15 @@ Our mission is to create a **one-stop destination** for travelers to discover an
 - 🧠 AI suggestions (using ChatGPT API)
 
 ---
+
+## 🚀 Tech Stack
+
+### 👨‍💻 Client
+    - React + Vite, TaiwlindCSS
+    - Cloudinary API to store images
+### 🛠 Server
+    -   NodeJS + Express
+    -   MongoDB
 
 ## 🧑‍💻 Getting Started
 
