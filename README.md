@@ -22,11 +22,11 @@ Our mission is to create a **one-stop destination** for travelers to discover an
 ## 🚀 Tech Stack
 
 ### 👨‍💻 Client
-    - React + Vite, TaiwlindCSS
-    - Cloudinary API to store images
+ - React + Vite, TaiwlindCSS
+- Cloudinary API to store images
 ### 🛠 Server
-    -   NodeJS + Express
-    -   MongoDB
+-   NodeJS + Express
+-   MongoDB
 
 ## 🧑‍💻 Getting Started
 
