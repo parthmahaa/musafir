@@ -89,7 +89,7 @@ export default function Footer() {
                             href="https://parthmaha.vercel.app/"
                             className="hover:text-orange-600 transition-colors duration-200"
                         >
-                            © {new Date().getFullYear()} Musafir
+                            {new Date().getFullYear()} Musafir
                         </a>
                         . All Rights Reserved.
                     </span>
