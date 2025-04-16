@@ -1,8 +1,29 @@
-import {Link} from "react-router-dom"; 
-import { MapPin, Home, LogIn, ArrowRight } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { MapPin, Home, LogIn } from "lucide-react";
 import Header from "../Header/Header";
 
-export default function NotFound() {
+export default function NotFound({ requiresAuth }) {
+  const navigate = useNavigate();
+
+  if (requiresAuth) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-white text-center px-6 py-12">
+        <LogIn className="w-20 h-20 text-orange-500 mb-8" />
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">Login Required</h1>
+        <p className="text-lg text-gray-600 max-w-md mb-8">
+          You need to be logged in to access this feature. Please log in to continue.
+        </p>
+        <button
+          onClick={() => navigate('/login')}
+          className="flex items-center justify-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-orange-600 transition-colors"
+        >
+          <LogIn className="w-5 h-5" />
+          Go to Login
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Header */}

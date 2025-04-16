@@ -41,8 +41,7 @@ const PrivateRoute = ({ element }) => {
   if (token) {
     return element;
   } else {
-    toast.error('Please log in to access Plan Your Trip');
-    return <NotFound/>
+    return <NotFound requiresAuth={true} />;
   }
 };
 
@@ -61,14 +60,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       position="top-center"
       autoClose={1000}
       hideProgressBar={false}
-      newestOnTop={true} // Ensure the newest toast appears on top
+      newestOnTop={true}
       closeOnClick
       rtl={false}
       pauseOnFocusLoss={false}
       draggable
       pauseOnHover={false}
       theme="light"
-      limit={1} // Show only one toast at a time
+      limit={1} 
       style={{zIndex: 9999}} // Ensure toasts are always on top
     />
     <Router>
@@ -99,7 +98,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="login" element={<PublicRoute element={<LoginPage />} />} />
             <Route path="profile" element={<Profile />} />
             <Route path="signup" element={<PublicRoute element={<SignupPage />} />} />
-            <Route path="*" element={<NotFound />} /> {/* Fallback route */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </WishlistProvider>
       </AuthProvider>
