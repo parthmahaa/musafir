@@ -75,32 +75,6 @@ export default function Footer() {
                                 </li>
                             </ul>
                         </div>
-
-                        {/* Details
-                        <div>
-                            <h2 className="mb-4 text-sm font-bold text-gray-900 uppercase tracking-wide">
-                                Details
-                            </h2>
-                            <ul className="text-gray-600 font-medium space-y-3">
-                                <li>
-                                    <Link
-                                        to="https://parthmaha.vercel.app/"
-                                        target="_blank"
-                                        className="hover:text-orange-600 transition-colors duration-200"
-                                    >
-                                        Parth Maha
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to="#"
-                                        className="hover:text-orange-600 transition-colors duration-200"
-                                    >
-                                        Surat, Gujarat
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div> */}
                     </div>
                 </div>
 
@@ -115,7 +89,7 @@ export default function Footer() {
                             href="https://parthmaha.vercel.app/"
                             className="hover:text-orange-600 transition-colors duration-200"
                         >
-                            Parth Maha
+                            © {new Date().getFullYear()} Musafir
                         </a>
                         . All Rights Reserved.
                     </span>
