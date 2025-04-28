@@ -27,10 +27,10 @@ router.get('/all', async (req, res) => {
 // Create a new review
 router.post('/create', async (req, res) => {
   try {
-    const { placeName, location, rating, reviewText, imageUrl, userId, userName } = req.body;
+    const { placeName, landmark ,locationCoords, rating, reviewText, imageUrl, userId, userName } = req.body;
 
-    // Validate required fields
-    if (!placeName || !location || !rating || !reviewText || !userId) {
+    // Validate required fields,
+    if (!placeName || !landmark || !locationCoords || !locationCoords.lat || !locationCoords.lng || !rating || !reviewText || !userId) {
       return res.status(400).json({
         success: false,
         error: "Please fill all required fields"
@@ -48,7 +48,8 @@ router.post('/create', async (req, res) => {
 
     const review = new Review({
       placeName,
-      location,
+      landmark,
+      locationCoords,
       rating,
       reviewText,
       imageUrl: imageUrl || "",

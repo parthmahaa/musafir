@@ -92,18 +92,6 @@ export default function Header() {
               </li>
               <li>
                 <NavLink
-                  to="/about"
-                  className={({ isActive }) =>
-                    `block py-2 duration-200 ${
-                      isActive ? 'text-orange-700' : 'text-gray-700'
-                    } hover:text-orange-700`
-                  }
-                >
-                  About
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
                   to="/explore"
                   className={({ isActive }) =>
                     `block py-2 duration-200 ${
@@ -112,6 +100,18 @@ export default function Header() {
                   }
                 >
                   Explore
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/reviews"
+                  className={({ isActive }) =>
+                    `block py-2 duration-200 ${
+                      isActive ? 'text-orange-700' : 'text-gray-700'
+                    } hover:text-orange-700`
+                  }
+                >
+                  Reviews
                 </NavLink>
               </li>
               <li>
@@ -256,19 +256,6 @@ export default function Header() {
                 </li>
                 <li className="mb-4">
                   <NavLink
-                    to="/about"
-                    onClick={closeMobileSidebar}
-                    className={({ isActive }) =>
-                      `block py-2 duration-200 ${
-                        isActive ? 'text-orange-700' : 'text-gray-700'
-                      } hover:text-orange-700`
-                    }
-                  >
-                    About
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
                     to="/explore"
                     onClick={closeMobileSidebar}
                     className={({ isActive }) =>
@@ -278,6 +265,19 @@ export default function Header() {
                     }
                   >
                     Explore
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/reviews"
+                    onClick={closeMobileSidebar}
+                    className={({ isActive }) =>
+                      `block py-2 duration-200 ${
+                        isActive ? 'text-orange-700' : 'text-gray-700'
+                      } hover:text-orange-700`
+                    }
+                  >
+                    Reviews
                   </NavLink>
                 </li>
                 <li>

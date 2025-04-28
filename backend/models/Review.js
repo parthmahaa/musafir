@@ -6,10 +6,14 @@ const reviewSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  location: {
+  landmark: {
     type: String,
     required: true,
     trim: true
+  },
+  locationCoords: {
+    lat: { type: Number, required: true },
+    lng: { type: Number, required: true }
   },
   rating: {
     type: Number,

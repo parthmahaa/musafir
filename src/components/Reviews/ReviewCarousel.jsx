@@ -4,6 +4,9 @@ import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
 import api from '../../services/api';
 import axios from "axios";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
 const ReviewCarousel = () => {
   const [reviews, setReviews] = useState([]);
@@ -123,7 +126,7 @@ const ReviewCarousel = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       <div className="absolute bottom-4 left-4 text-white">
                         <h3 className="text-xl font-semibold">{review.placeName}</h3>
-                        <p className="text-sm opacity-90">{review.location}</p>
+                        <p className="text-sm opacity-90">{review.landmark}</p>
                       </div>
                     </div>
                     <div className="md:w-2/3 p-6">
@@ -142,6 +145,20 @@ const ReviewCarousel = () => {
                       <p className="text-gray-500 text-sm">
                         {new Date(review.createdAt).toLocaleDateString()}
                       </p>
+                      {/* Google Maps link */}
+                      {review.locationCoords && review.locationCoords.lat && review.locationCoords.lng && (
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${review.locationCoords.lat},${review.locationCoords.lng}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center mt-3 text-sm text-blue-600 hover:underline"
+                        >
+                          Directions
+                          <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M14 3h7m0 0v7m0-7L10 14"></path>
+                          </svg>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>

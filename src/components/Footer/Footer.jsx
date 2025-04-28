@@ -41,7 +41,7 @@ export default function Footer() {
                                         to="/about"
                                         className="hover:text-orange-600 transition-colors duration-200"
                                     >
-                                        About
+                                        About Us
                                     </Link>
                                 </li>
                             </ul>
