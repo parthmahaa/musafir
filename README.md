@@ -59,6 +59,3 @@ Here's how you can contribute:
     🚀 Push to your fork: git push origin feature/your-feature
 
     🔁 Submit a pull request
-
-### 🧑‍🎓 Author
-    @https://github.com/parthmahaa
