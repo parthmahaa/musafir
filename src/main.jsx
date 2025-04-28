@@ -89,11 +89,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 path="reviews"
                 element={<PrivateRoute element={<Review />} />}
               />
+              <Route path="plan-your-trip" element={<PrivateRoute element={<PlanYourTrip />} />} />
+              <Route path="my-trips" element={<PrivateRoute element={<MyTrips />} />} />
             </Route>            
             <Route path="admin" element={<PrivateAdminRoute element={<AdminDashboard />} />} />
             <Route path="forgot-password" element={<ForgetPassword />} />
-            <Route path="plan-your-trip" element={<PrivateRoute element={<PlanYourTrip />} />} />
-            <Route path="my-trips" element={<PrivateRoute element={<MyTrips />} />} />
             <Route path="contact-us" element={<ContactUs />} />
             <Route path="login" element={<PublicRoute element={<LoginPage />} />} />
             <Route path="profile" element={<Profile />} />
