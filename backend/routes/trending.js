@@ -9,7 +9,7 @@ router.get('' , [] ,  async (req,res) => {
         const cachedData = await client.get(cacheKey)
 
         if(cachedData){
-            res.status(200).json({msg: cachedData ,cached: true})
+            return res.status(200).json({msg: cachedData ,cached: true})
         }
         const response = await Trending.find()
         if(!response) res.status(404).json({msg : "No data found"})

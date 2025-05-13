@@ -18,7 +18,7 @@ router.get('/user-wishlist', async (req, res) => {
         const cachedData = await client.get(cacheKey)
 
         if(cachedData){
-            res.status(200).json({msg: JSON.parse(cachedData), cached: true})
+            return res.status(200).json({msg: JSON.parse(cachedData), cached: true})
         }
         const wishlistItems = await Wishlist.find({ Email: email })
             .select('Name Location Image -_id'); // Only select Name and Location, exclude _id
