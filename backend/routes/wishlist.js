@@ -1,5 +1,6 @@
 import Router from 'express';
 import Wishlist from '../models/Wishlist.js';
+import client from '../config/redisClient.js';
 const router = Router();
 
 router.get('/user-wishlist', async (req, res) => {
@@ -13,12 +14,19 @@ router.get('/user-wishlist', async (req, res) => {
     }
 
     try {
+        const cacheKey = 'user-wishlist'
+        const cachedData = await client.get(cacheKey)
+
+        if(cachedData){
+            res.status(200).json({msg: JSON.parse(cachedData), cached: true})
+        }
         const wishlistItems = await Wishlist.find({ Email: email })
             .select('Name Location Image -_id'); // Only select Name and Location, exclude _id
         
-            console.log(wishlistItems);
+        await client.setEx(cacheKey, 86400 , JSON.stringify(wishlistItems))
         return res.status(200).json({
             success: true,
+            cached: false,
             wishlistItems
         });
     } catch (error) {
