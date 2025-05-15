@@ -15,7 +15,6 @@ const config = {
     MONGODB_URI: process.env.MONGODB_URI,
     EMAIL_USER: process.env.EMAIL_USER,
     EMAIL_PASS: process.env.EMAIL_PASS,
-    REDIS_URL : process.env.REDIS_URL
 };
 
 // // Validate required environment variables
