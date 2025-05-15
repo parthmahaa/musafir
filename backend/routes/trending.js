@@ -1,4 +1,3 @@
-import client from '../config/redisClient.js'
 import Router from 'express'
 import Trending from '../models/Trending.js'
 const router = Router()
