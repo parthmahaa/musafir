@@ -1,4 +1,3 @@
-import client from '../config/redisClient.js'
 import Router from 'express'
 import StreetFood from '../models/StreetFood.js'
 const router = Router()

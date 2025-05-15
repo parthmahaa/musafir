@@ -1,6 +1,5 @@
 import Router from 'express';
 import Wishlist from '../models/Wishlist.js';
-import client from '../config/redisClient.js';
 const router = Router();
 
 router.get('/user-wishlist', async (req, res) => {

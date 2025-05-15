@@ -1,4 +1,3 @@
-import client from '../config/redisClient.js'
 import Router from 'express'
 import H from '../models/Historical.js'
 const router = Router()
