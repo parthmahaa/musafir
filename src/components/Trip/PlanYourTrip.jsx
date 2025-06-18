@@ -165,7 +165,6 @@ const PlanYourTrip = () => {
 
   return (
     <>
-      <Header />
       <div className="bg-white min-h-screen p-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
@@ -234,7 +233,6 @@ const PlanYourTrip = () => {
           )}
         </div>
       </div>
-      <Footer />
     </>
   );
 };
