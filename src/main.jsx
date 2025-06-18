@@ -82,15 +82,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Route path="street_food" element={<StreetFood />} />
               <Route path="wishlist" element={<Wishlist />} />
               <Route path="historical_places" element={<Historical />} />
-              <Route path="/trip-list" element={<TripList />} />
-              <Route path="/suggest-trips" element={<SuggestTrips />} />
               <Route
                 path="reviews"
                 element={<PrivateRoute element={<Review />} />}
               />
               <Route path="plan-your-trip" element={<PrivateRoute element={<PlanYourTrip />} />} />
               <Route path="my-trips" element={<PrivateRoute element={<MyTrips />} />} />
-            </Route>            
+            </Route>         
+            <Route path="/trip-list" element={<TripList />} />
+            <Route path="/suggest-trips" element={<SuggestTrips />} />   
             <Route path="/my-trips" element={<MyTrips />} />
             <Route path="admin" element={<PrivateAdminRoute element={<AdminDashboard />} />} />
             <Route path="forgot-password" element={<ForgetPassword />} />
