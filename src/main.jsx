@@ -57,7 +57,7 @@ const PublicRoute = ({ element }) => {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ToastContainer
-      position="top-center"
+      position="top-right"
       autoClose={1000}
       hideProgressBar={false}
       newestOnTop={true}
@@ -84,7 +84,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Route path="historical_places" element={<Historical />} />
               <Route path="/trip-list" element={<TripList />} />
               <Route path="/suggest-trips" element={<SuggestTrips />} />
-              <Route path="/my-trips" element={<MyTrips />} />
               <Route
                 path="reviews"
                 element={<PrivateRoute element={<Review />} />}
@@ -92,6 +91,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Route path="plan-your-trip" element={<PrivateRoute element={<PlanYourTrip />} />} />
               <Route path="my-trips" element={<PrivateRoute element={<MyTrips />} />} />
             </Route>            
+            <Route path="/my-trips" element={<MyTrips />} />
             <Route path="admin" element={<PrivateAdminRoute element={<AdminDashboard />} />} />
             <Route path="forgot-password" element={<ForgetPassword />} />
             <Route path="contact-us" element={<ContactUs />} />
