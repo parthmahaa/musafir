@@ -37,7 +37,7 @@ app.use(express.json())
 
 //DB connection
 mongoose.connect(config.MONGODB_URI, {
-    serverSelectionTimeoutMS: 30000, // Increase timeout
+    serverSelectionTimeoutMS: 30000, 
   })
 .then(()=>{
     console.log("mongoDb connceted");
@@ -57,9 +57,9 @@ import Attractions from './models/Attractions.js';
 import Announcement from './models/Announcement.js'
 import SuggestTrip from './models/SuggestTrip.js';
 
-cron.schedule('*/10 * * * *', async () => {
+cron.schedule('*/13 * * * *', async () => {
   try {
-    await fetch('https://musafir-4lbu.onrender.com'); // Replace with your actual Render URL
+    await fetch('https://musafir-4lbu.onrender.com');
     console.log('Self-ping successful - staying awake!');
   } catch (error) {
     console.error('Self-ping failed:', error);
